@@ -1,0 +1,100 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Dilek Yıldızım Sensin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Logo Styling */
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #005b96;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            margin: 15px 0;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .login-btn {
+            background-color: #005b96;
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+            .login-btn:hover {
+                background-color: #004080;
+            }
+
+        .register-link {
+            display: block;
+            margin-top: 15px;
+            color: #005b96;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://worldwish.org/wp-content/uploads/2022/05/MAW_International_RGB.png" alt="Logo" class="logo">
+        <h1>Kayıt Ol</h1>
+        <form>
+            <div class="input-field">
+                <label for="username">Mail Adresi</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-field">
+                <label for="password">Şifreniz</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <a href="@Url.Action("Register", "Home")" class="register-link">Hesabınız yoksa buraya tıklayınız...</a>
+    </div>
+</body>
+</html>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DilekYildizimSensin.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241029094557_firstMigration")]
-    partial class firstMigration
+    [Migration("20241029201229_firstmig")]
+    partial class firstmig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,6 +51,29 @@ namespace DilekYildizimSensin.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"),
+                            ConcurrencyStamp = "752f9b6f-b41f-480f-9f90-7263cace07f9",
+                            Name = "Superadmin",
+                            NormalizedName = "SUPERADMIN"
+                        },
+                        new
+                        {
+                            Id = new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"),
+                            ConcurrencyStamp = "3ff73a96-a66a-4f1f-8aa2-53bfe4340b8a",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"),
+                            ConcurrencyStamp = "1eee8825-fb1d-4c75-ac9a-c4f105c80a06",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("DilekYildizimSensin.Models.AppRoleClaim", b =>
@@ -100,10 +123,17 @@ namespace DilekYildizimSensin.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -154,6 +184,54 @@ namespace DilekYildizimSensin.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
+                            AccessFailedCount = 0,
+                            Age = 0,
+                            ConcurrencyStamp = "58961227-b135-4c63-9d50-61278cbeb451",
+                            Email = "superadmin@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Erhan",
+                            Gender = 0,
+                            ImageUrl = "https://static.vecteezy.com/system/resources/previews/024/183/525/non_2x/avatar-of-a-man-portrait-of-a-young-guy-illustration-of-male-character-in-modern-color-style-vector.jpg",
+                            LastName = "Zorlu",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SUPERADMIN@GMAIL.COM",
+                            NormalizedUserName = "SUPERADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKSQemn+0ehX06dO5CWyd2emRoHryzqACrQkWVmf/wl64JTFTvG9/dMrOU9vLP42qQ==",
+                            PhoneNumber = "+905439999999",
+                            PhoneNumberConfirmed = true,
+                            Score = 0,
+                            SecurityStamp = "b40f2b5b-7bfc-41f8-8a64-c7e631bda03f",
+                            TwoFactorEnabled = false,
+                            UserName = "erhanzorlu"
+                        },
+                        new
+                        {
+                            Id = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
+                            AccessFailedCount = 0,
+                            Age = 0,
+                            ConcurrencyStamp = "e99949fc-5228-4eed-81cf-38eed5818fd1",
+                            Email = "admin@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Admin",
+                            Gender = 0,
+                            ImageUrl = "https://img.freepik.com/premium-photo/graphic-designer-digital-avatar-generative-ai_934475-9292.jpg",
+                            LastName = "User",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            NormalizedUserName = "ADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAECAT8xAKntTTOePhmbzG29kTQIgCyujU9ilZTlI4hF2u3ictiGglC4yjFKsliAHnhg==",
+                            PhoneNumber = "+905439999988",
+                            PhoneNumberConfirmed = false,
+                            Score = 0,
+                            SecurityStamp = "471f4c2a-d9b1-41be-8c80-61c4acb21ac8",
+                            TwoFactorEnabled = false,
+                            UserName = "umutyasar"
+                        });
                 });
 
             modelBuilder.Entity("DilekYildizimSensin.Models.AppUserClaim", b =>
@@ -183,10 +261,12 @@ namespace DilekYildizimSensin.Migrations
             modelBuilder.Entity("DilekYildizimSensin.Models.AppUserLogin", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -214,6 +294,18 @@ namespace DilekYildizimSensin.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
+                            RoleId = new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e")
+                        },
+                        new
+                        {
+                            UserId = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
+                            RoleId = new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb")
+                        });
                 });
 
             modelBuilder.Entity("DilekYildizimSensin.Models.AppUserToken", b =>

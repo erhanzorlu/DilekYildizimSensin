@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DilekYildizimSensin.Migrations
 {
     /// <inheritdoc />
-    public partial class firstMigration : Migration
+    public partial class firstmig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,10 +32,12 @@ namespace DilekYildizimSensin.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Score = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -139,8 +143,8 @@ namespace DilekYildizimSensin.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -229,6 +233,34 @@ namespace DilekYildizimSensin.Migrations
                         principalTable: "Badges",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"), "752f9b6f-b41f-480f-9f90-7263cace07f9", "Superadmin", "SUPERADMIN" },
+                    { new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"), "3ff73a96-a66a-4f1f-8aa2-53bfe4340b8a", "Admin", "ADMIN" },
+                    { new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"), "1eee8825-fb1d-4c75-ac9a-c4f105c80a06", "User", "USER" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "Age", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "Gender", "ImageUrl", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "Score", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 0, 0, "e99949fc-5228-4eed-81cf-38eed5818fd1", "admin@gmail.com", false, "Admin", 0, "https://img.freepik.com/premium-photo/graphic-designer-digital-avatar-generative-ai_934475-9292.jpg", "User", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAECAT8xAKntTTOePhmbzG29kTQIgCyujU9ilZTlI4hF2u3ictiGglC4yjFKsliAHnhg==", "+905439999988", false, 0, "471f4c2a-d9b1-41be-8c80-61c4acb21ac8", false, "umutyasar" },
+                    { new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 0, 0, "58961227-b135-4c63-9d50-61278cbeb451", "superadmin@gmail.com", true, "Erhan", 0, "https://static.vecteezy.com/system/resources/previews/024/183/525/non_2x/avatar-of-a-man-portrait-of-a-young-guy-illustration-of-male-character-in-modern-color-style-vector.jpg", "Zorlu", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN@GMAIL.COM", "AQAAAAIAAYagAAAAEKSQemn+0ehX06dO5CWyd2emRoHryzqACrQkWVmf/wl64JTFTvG9/dMrOU9vLP42qQ==", "+905439999999", true, 0, "b40f2b5b-7bfc-41f8-8a64-c7e631bda03f", false, "erhanzorlu" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"), new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427") },
+                    { new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"), new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c") }
                 });
 
             migrationBuilder.CreateIndex(

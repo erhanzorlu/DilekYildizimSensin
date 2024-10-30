@@ -10,10 +10,12 @@ namespace DilekYildizimSensin.Models
 {
     public class AppUser : IdentityUser<Guid>, IBaseEntity
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public  GenderEnum Gender { get; set; }
         public int Age { get; set; }
         public int Score { get; set; }
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         public ICollection<UserBadge> UserBadges { get; set; }
     }
