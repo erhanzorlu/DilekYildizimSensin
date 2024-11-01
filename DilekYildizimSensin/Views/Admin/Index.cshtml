@@ -1,0 +1,44 @@
+﻿@model AppUser
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h3 style="text-align: center;">Hoşgeldin @Model.FirstName @Model.LastName</h3>
+<br />
+<h2>İstatistikler</h2>
+<br />
+
+<div class="stats-container">
+    <div class="card">
+        <h3>Toplam Kayıtlı Kullanıcı</h3>
+        <p>@ViewData["TotalUsers"]</p>
+    </div>
+
+    <div class="card">
+        <h3>Bugünkü Yeni Kayıtlar</h3>
+        <p>2</p> <!-- Örnek veri, dinamik hale getirilebilir -->
+    </div>
+
+    <div class="card">
+        <h3>Aktif Kullanıcılar</h3>
+        <p>4</p> <!-- Örnek veri, dinamik hale getirilebilir -->
+    </div>
+
+
+    <div class="card">
+        <h3>Toplam Etkinlik</h3>
+        <p>54</p> <!-- Örnek veri, dinamik hale getirilebilir -->
+    </div>
+
+    <div class="card">
+        <h3>Toplam Dilek Alma</h3>
+        <p>17</p> <!-- Örnek veri, dinamik hale getirilebilir -->
+    </div>
+
+    <div class="card">
+        <h3>Toplam Dilek Gerçekleştirme</h3>
+        <p>4</p> <!-- Örnek veri, dinamik hale getirilebilir -->
+    </div>
+
+
+</div>
+

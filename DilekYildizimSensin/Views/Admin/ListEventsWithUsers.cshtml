@@ -1,0 +1,86 @@
+﻿@model List<UserEvent>
+@{
+    ViewData["Title"] = "ListEventsWithUsers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    <style >
+    /* Tablo ve başlık */
+    h2 {
+        font-size: 1.8em;
+        color: #005b96;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+
+    /* Buton stilleri */
+    .btn {
+        padding: 8px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border: none;
+    }
+
+    .btn-edit {
+        background-color: #4CAF50; /* Yeşil */
+    }
+
+        .btn-edit:hover {
+            background-color: #45a049;
+        }
+
+    .btn-delete {
+        background-color: #f44336; /* Kırmızı */
+    }
+
+        .btn-delete:hover {
+            background-color: #d32f2f;
+        }
+</style>
+
+</style>
+
+
+<h2>Kullanıcı Etkinlik Listesi (Günümüzden Eskiye)</h2>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Etkinlik Adı</th>
+            <th>Katılım Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var userEvent in Model)
+        {
+            <tr>
+                <td>@userEvent.AppUser.FirstName @userEvent.AppUser.LastName</td>
+                <td>@userEvent.Event.EventName</td>
+                <td>@userEvent.EventDate.ToString("dd MMM yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

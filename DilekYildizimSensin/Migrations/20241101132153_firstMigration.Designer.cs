@@ -4,6 +4,7 @@ using DilekYildizimSensin.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DilekYildizimSensin.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241101132153_firstMigration")]
+    partial class firstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,21 +56,21 @@ namespace DilekYildizimSensin.Migrations
                         new
                         {
                             Id = new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"),
-                            ConcurrencyStamp = "c5a19039-4be1-4f01-863e-e643500d5f39",
+                            ConcurrencyStamp = "1347112e-35ef-4755-a20e-26afa666cae8",
                             Name = "Superadmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"),
-                            ConcurrencyStamp = "0bb9151a-0eb1-4316-884d-5c626c3c7b69",
+                            ConcurrencyStamp = "a6fedf89-4dd6-4eb0-8c20-fde2dc7bf69f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"),
-                            ConcurrencyStamp = "b87c545e-441b-484c-ae35-d5c037e9af48",
+                            ConcurrencyStamp = "46c061a7-3a3d-4546-a8a0-d0c6dc2a1f99",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -188,7 +191,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             AccessFailedCount = 0,
                             Age = 25,
-                            ConcurrencyStamp = "4af2165d-4845-4473-bdea-d4d391cf81e1",
+                            ConcurrencyStamp = "2f9c987d-0dba-472b-8199-dd005cd9730c",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Erhan",
@@ -198,11 +201,11 @@ namespace DilekYildizimSensin.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM02htHXEONNyjqrUdd4FiiaGvLQl7YKP/GJFzFaeEszerrdbtqIrME2KWAVpQxfqg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH/uGZkPKmZlWa6ZgRtijLOVfJSU+vs6MRuMAyMjY5D2aP2/IggLQXy2d82xFbTsRA==",
                             PhoneNumber = "+905439999999",
                             PhoneNumberConfirmed = true,
                             Score = 520,
-                            SecurityStamp = "753c67eb-34c2-42b2-84bf-9b23a1a9bfae",
+                            SecurityStamp = "1243dba8-5d3c-4e97-8130-eb7cb65769e3",
                             TwoFactorEnabled = false,
                             UserName = "erhanzorlu"
                         },
@@ -211,7 +214,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             AccessFailedCount = 0,
                             Age = 30,
-                            ConcurrencyStamp = "ccc5ba7b-0deb-49fb-8140-88feea4c74bc",
+                            ConcurrencyStamp = "458c2473-23cc-425d-93b1-6277c12081a6",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -221,11 +224,11 @@ namespace DilekYildizimSensin.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJkSsEurBeY6pCaFq0VhV7/+hr6RvOif8TWsWOEoS/fD5bI1Ovq3KT35NSMzKhv5JQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIzFGgQcxrlLbUpxmooMHWPAmPto1gqQIH1fpn71sPc0wTwWtfjYNBzAIFTYRR5/wQ==",
                             PhoneNumber = "+905439999988",
                             PhoneNumberConfirmed = false,
                             Score = 123,
-                            SecurityStamp = "4eb6a33c-740b-404f-a00c-ff612d44eab1",
+                            SecurityStamp = "d81f158f-101d-4bdb-bf5a-9afa5cc73b6a",
                             TwoFactorEnabled = false,
                             UserName = "umutyasar"
                         },
@@ -234,7 +237,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("5bdf3b72-62af-4d30-8bc8-0b6cf723ae57"),
                             AccessFailedCount = 0,
                             Age = 22,
-                            ConcurrencyStamp = "c8a11971-c2d2-4965-97cd-49fed7d4f846",
+                            ConcurrencyStamp = "56cb57d1-d07a-4417-8a93-a04c7c4eb783",
                             Email = "ahmetyildiz@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ahmet",
@@ -247,7 +250,7 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999987",
                             PhoneNumberConfirmed = false,
                             Score = 320,
-                            SecurityStamp = "4163a942-f0aa-4707-b739-5a26e3bf2945",
+                            SecurityStamp = "f5e8d43c-8c59-4406-84f5-1b23e839cc78",
                             TwoFactorEnabled = false,
                             UserName = "ahmetyildiz"
                         },
@@ -256,7 +259,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("c9a80a3a-f3af-439b-a4a3-985e65272a22"),
                             AccessFailedCount = 0,
                             Age = 19,
-                            ConcurrencyStamp = "269b3487-72f6-4986-9790-d4b405cf20a8",
+                            ConcurrencyStamp = "a93b9764-45f9-48b8-bb1d-4274076e0d7e",
                             Email = "melisekinci@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Melis",
@@ -269,7 +272,7 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999986",
                             PhoneNumberConfirmed = false,
                             Score = 450,
-                            SecurityStamp = "1f0ec048-6acd-478d-8792-aa55eb51cd18",
+                            SecurityStamp = "73f46d41-4d14-4c6b-bde0-caa4ffa5517d",
                             TwoFactorEnabled = false,
                             UserName = "melisekinci"
                         },
@@ -278,7 +281,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("a5b6d3ea-7baa-49b8-808c-2d7d72f9c0d1"),
                             AccessFailedCount = 0,
                             Age = 35,
-                            ConcurrencyStamp = "b7fe68b2-c270-403a-a288-907dc4b5af70",
+                            ConcurrencyStamp = "b140f918-56f6-4ced-91d0-74140c848bb5",
                             Email = "cemakyildiz@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Cem",
@@ -291,7 +294,7 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999985",
                             PhoneNumberConfirmed = false,
                             Score = 30,
-                            SecurityStamp = "f0b8714a-0438-4b4e-9ac1-200a2af405c0",
+                            SecurityStamp = "56d1683e-3fdb-466c-9162-1350d6bb3680",
                             TwoFactorEnabled = false,
                             UserName = "cemakyildiz"
                         },
@@ -300,7 +303,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("e48db928-a5fc-4a9c-b72e-6373a453c6c7"),
                             AccessFailedCount = 0,
                             Age = 23,
-                            ConcurrencyStamp = "5f9b1d60-9dad-4e13-832d-4eb0c48a8256",
+                            ConcurrencyStamp = "381abd04-5e62-4536-bd70-f84cd6a3d981",
                             Email = "serdarkaya@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Serdar",
@@ -313,7 +316,7 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999984",
                             PhoneNumberConfirmed = false,
                             Score = 390,
-                            SecurityStamp = "4a267e1f-bb2f-475c-8da9-019d3c113cf5",
+                            SecurityStamp = "ee9b2005-b24d-4052-a550-3811bfbd0245",
                             TwoFactorEnabled = false,
                             UserName = "serdarkaya"
                         },
@@ -322,7 +325,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("99f21431-f75d-4b53-b0bc-c46a5a8db1a9"),
                             AccessFailedCount = 0,
                             Age = 29,
-                            ConcurrencyStamp = "0050cd9c-ad57-415e-8d10-7dd620e4d303",
+                            ConcurrencyStamp = "2ce8f44f-3bf9-44af-af21-a757a4240818",
                             Email = "elifdemir@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Elif",
@@ -335,7 +338,7 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999983",
                             PhoneNumberConfirmed = false,
                             Score = 340,
-                            SecurityStamp = "88c00f91-c788-4676-be84-2bee779d7957",
+                            SecurityStamp = "7916ae57-1d4a-448d-abbe-336c71e49201",
                             TwoFactorEnabled = false,
                             UserName = "elifdemir"
                         });
@@ -481,7 +484,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://w7.pngwing.com/pngs/423/1004/png-transparent-medal-gold-winner-badge-achievement-reward-army-champion-awards-icon.png",
                             BadgeName = "Karda Yürüyen",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 378, DateTimeKind.Local).AddTicks(1480),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 482, DateTimeKind.Local).AddTicks(8920),
                             IsDeleted = false
                         },
                         new
@@ -490,7 +493,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://static.vecteezy.com/system/resources/previews/014/606/031/original/golden-yellow-trophy-icon-for-the-winner-of-a-sports-event-png.png",
                             BadgeName = "Sosyal Kelebek",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 378, DateTimeKind.Local).AddTicks(1535),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 482, DateTimeKind.Local).AddTicks(8988),
                             IsDeleted = false
                         },
                         new
@@ -499,7 +502,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://e7.pngegg.com/pngimages/1002/183/png-clipart-smiley-smiley-miscellaneous-smiley.png",
                             BadgeName = "Gülen Yüz",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 378, DateTimeKind.Local).AddTicks(1540),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 482, DateTimeKind.Local).AddTicks(8996),
                             IsDeleted = false
                         },
                         new
@@ -508,7 +511,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://www.shutterstock.com/image-vector/transparent-winner-icon-png-vector-260nw-1945885621.jpg",
                             BadgeName = "Yüce Gönüllü",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 378, DateTimeKind.Local).AddTicks(1544),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 482, DateTimeKind.Local).AddTicks(9003),
                             IsDeleted = false
                         },
                         new
@@ -517,7 +520,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://img.lovepik.com/png/20231009/Outstanding-color-male-employees-of-the-month-staff-the-company_136776_wh860.png",
                             BadgeName = "Ayın Elemanı",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 378, DateTimeKind.Local).AddTicks(1548),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 482, DateTimeKind.Local).AddTicks(9010),
                             IsDeleted = false
                         });
                 });
@@ -563,7 +566,7 @@ namespace DilekYildizimSensin.Migrations
                         {
                             Id = new Guid("1328a6c8-9ebd-4b22-978a-453f0c31bbdf"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 378, DateTimeKind.Utc).AddTicks(2643),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 483, DateTimeKind.Utc).AddTicks(805),
                             EventName = "Ofis Etkinliği",
                             IsDeleted = false
                         },
@@ -571,7 +574,7 @@ namespace DilekYildizimSensin.Migrations
                         {
                             Id = new Guid("1e7bc8e4-59a8-4f63-af21-c7697a727f64"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 378, DateTimeKind.Utc).AddTicks(2645),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 483, DateTimeKind.Utc).AddTicks(824),
                             EventName = "Dilek Alma Etkinliği",
                             IsDeleted = false
                         },
@@ -579,7 +582,7 @@ namespace DilekYildizimSensin.Migrations
                         {
                             Id = new Guid("3c5b8e39-a8f8-4671-a573-2e1e5e8a6f85"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 378, DateTimeKind.Utc).AddTicks(2648),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 483, DateTimeKind.Utc).AddTicks(827),
                             EventName = "Dilek Gerçekleştirme Etkinliği",
                             IsDeleted = false
                         },
@@ -587,7 +590,7 @@ namespace DilekYildizimSensin.Migrations
                         {
                             Id = new Guid("e6481d73-37e2-4b7e-a817-a7d0921797c6"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 378, DateTimeKind.Utc).AddTicks(2650),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 483, DateTimeKind.Utc).AddTicks(830),
                             EventName = "Stant Etkinliği",
                             IsDeleted = false
                         });
@@ -638,47 +641,47 @@ namespace DilekYildizimSensin.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("53445d2c-7b02-4caa-b09c-00248a2cea7f"),
+                            Id = new Guid("b0091448-7fb7-4574-8a32-ecb16e2f548d"),
                             AppUserId = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             BadgeId = new Guid("0299a520-25ca-49ec-9492-035ccf2ed5b8"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 379, DateTimeKind.Local).AddTicks(2967),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 485, DateTimeKind.Local).AddTicks(1540),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("1cf0a5b4-ef09-41fc-88c6-a5db6821042e"),
+                            Id = new Guid("0c632c45-0e23-4445-8d7e-0be8f775ccaa"),
                             AppUserId = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             BadgeId = new Guid("8bf1da2f-a48e-4ecf-94a0-3b85e3cb32d2"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 379, DateTimeKind.Local).AddTicks(2996),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 485, DateTimeKind.Local).AddTicks(1587),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("bdbdc92b-7c80-4b41-9c74-ba0e8a766f12"),
+                            Id = new Guid("f41171d1-090b-4716-af01-82163c403320"),
                             AppUserId = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             BadgeId = new Guid("5d706d85-8780-43eb-9f0b-21f6d6ae9a07"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 379, DateTimeKind.Local).AddTicks(3001),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 485, DateTimeKind.Local).AddTicks(1607),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("87277119-826b-486b-9055-8a26c443ce57"),
+                            Id = new Guid("8efc3530-6112-4463-b68e-8e39ce91167e"),
                             AppUserId = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             BadgeId = new Guid("820b74d4-c6f7-4823-a45e-6dbd41311212"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 379, DateTimeKind.Local).AddTicks(3005),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 485, DateTimeKind.Local).AddTicks(1615),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("fe445a87-bf6c-49f8-a3d5-e8cc3737d896"),
+                            Id = new Guid("b90322a6-d3fa-4665-9d39-ffef9bee1b83"),
                             AppUserId = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             BadgeId = new Guid("0299a520-25ca-49ec-9492-035ccf2ed5b8"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 21, 41, 3, 379, DateTimeKind.Local).AddTicks(3009),
+                            CreatedDate = new DateTime(2024, 11, 1, 16, 21, 52, 485, DateTimeKind.Local).AddTicks(1621),
                             IsDeleted = false
                         });
                 });
@@ -705,9 +708,6 @@ namespace DilekYildizimSensin.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("EventDate")
-                        .HasColumnType("date");
-
                     b.Property<Guid>("EventId")
                         .HasColumnType("uniqueidentifier");
 
@@ -731,41 +731,37 @@ namespace DilekYildizimSensin.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2a99c490-b17c-47f8-a6e8-a820cd955212"),
+                            Id = new Guid("ec24b9f6-6bd3-42f9-bf42-41c77caa36bb"),
                             AppUserId = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 379, DateTimeKind.Utc).AddTicks(5198),
-                            EventDate = new DateOnly(1, 1, 1),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 485, DateTimeKind.Utc).AddTicks(5140),
                             EventId = new Guid("1328a6c8-9ebd-4b22-978a-453f0c31bbdf"),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("ca77e4ed-63ed-4b82-9395-c2c76d299c7d"),
+                            Id = new Guid("1a3cc996-9d61-43d8-816c-b9471159f9e5"),
                             AppUserId = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 379, DateTimeKind.Utc).AddTicks(5203),
-                            EventDate = new DateOnly(1, 1, 1),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 485, DateTimeKind.Utc).AddTicks(5148),
                             EventId = new Guid("1e7bc8e4-59a8-4f63-af21-c7697a727f64"),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("d8d288bd-cd09-4d8a-993a-1b1d531fd83a"),
+                            Id = new Guid("d0ce9ee2-44bd-4d7e-b9eb-c76584e5d71f"),
                             AppUserId = new Guid("5bdf3b72-62af-4d30-8bc8-0b6cf723ae57"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 379, DateTimeKind.Utc).AddTicks(5206),
-                            EventDate = new DateOnly(1, 1, 1),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 485, DateTimeKind.Utc).AddTicks(5160),
                             EventId = new Guid("3c5b8e39-a8f8-4671-a573-2e1e5e8a6f85"),
                             IsDeleted = false
                         },
                         new
                         {
-                            Id = new Guid("9d4d3874-b413-43d3-96b1-bb04a2dd21dd"),
+                            Id = new Guid("fc8e85b1-7f89-47ee-9d72-03877626e305"),
                             AppUserId = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 1, 18, 41, 3, 379, DateTimeKind.Utc).AddTicks(5209),
-                            EventDate = new DateOnly(1, 1, 1),
+                            CreatedDate = new DateTime(2024, 11, 1, 13, 21, 52, 485, DateTimeKind.Utc).AddTicks(5165),
                             EventId = new Guid("e6481d73-37e2-4b7e-a817-a7d0921797c6"),
                             IsDeleted = false
                         });

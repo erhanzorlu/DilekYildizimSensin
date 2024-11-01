@@ -1,0 +1,59 @@
+﻿@using DilekYildizimSensin.Dtos
+@model AddEventToUserViewModel
+@{
+    ViewData["Title"] = "AddEventToUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kullanıcılara Etkinlik Ekle</h2>
+
+<form asp-action="AddEventToUser" method="post" class="event-form" id="addEventForm">
+    <!-- Kullanıcı Seçimi -->
+    <div class="form-group">
+        <label>Kullanıcı Seç</label>
+        <div id="userCheckboxes">
+            @foreach (var user in Model.Users)
+            {
+                    <div>
+                        <input type="checkbox" name="SelectedUserIds" value="@user.Id" id="user_@user.Id" />
+                        <label for="user_@user.Id">@user.FirstName @user.LastName</label>
+                    </div>
+            }
+        </div>
+    </div>
+
+    <!-- Etkinlik ve Tarih Seçimi -->
+    <div class="form-group">
+        <label>Etkinlik Seç</label>
+        <select asp-for="EventId" class="form-control">
+            @foreach (var ev in Model.Events)
+            {
+                    <option value="@ev.Id">@ev.EventName</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Etkinlik Tarihi</label>
+        <input asp-for="EventDate" type="date" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn-submit">Kaydet</button>
+</form>
+
+@if (TempData["SuccessMessage"] != null)
+{
+        <p class="text-success">@TempData["SuccessMessage"]</p>
+}
+
+<style>
+    /* Form stili */
+    .event-form {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>

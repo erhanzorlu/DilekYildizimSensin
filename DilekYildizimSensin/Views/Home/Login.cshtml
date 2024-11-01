@@ -83,16 +83,16 @@
     <div class="login-container">
         <img src="https://worldwish.org/wp-content/uploads/2022/05/MAW_International_RGB.png" alt="Logo" class="logo">
         <h1>Kayıt Ol</h1>
-        <form>
+        <form action="@Url.Action("Login", "Home")" method="post">
             <div class="input-field">
                 <label for="username">Mail Adresi</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="UserNameOrEmail" required>
             </div>
             <div class="input-field">
                 <label for="password">Şifreniz</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="Password" required>
             </div>
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" class="login-btn">Giriş Yap</button>
         </form>
         <a href="@Url.Action("Register", "Home")" class="register-link">Hesabınız yoksa buraya tıklayınız...</a>
     </div>

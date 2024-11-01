@@ -1,0 +1,212 @@
+﻿@* _adminLayout.cshtml *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetim Paneli</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* General reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body style */
+        body {
+            display: flex;
+        }
+
+        /* Sidebar style */
+        .sidebar {
+            width: 250px;
+            background-color: #005b96;
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+            .sidebar h2 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+
+            .sidebar ul {
+                list-style-type: none;
+            }
+
+                .sidebar ul li {
+                    margin: 15px 0;
+                }
+
+                    .sidebar ul li a {
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.2em;
+                        display: block;
+                        padding: 10px;
+                        border-radius: 8px;
+                    }
+
+                        .sidebar ul li a:hover,
+                        .sidebar ul li a.active {
+                            background-color: #f9a825;
+                        }
+
+        /* Main content */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            background-color: #e0f7fa;
+        }
+
+        header h1 {
+            color: #005b96;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Section styling */
+        section h2 {
+            color: #005b96;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+            form label {
+                color: #333;
+            }
+
+            form input, form textarea, form button {
+                padding: 10px;
+                border: 1px solid #90caf9;
+                border-radius: 5px;
+                font-size: 1em;
+            }
+
+            form button {
+                background-color: #005b96;
+                color: white;
+                cursor: pointer;
+                border: none;
+                font-weight: bold;
+            }
+
+                form button:hover {
+                    background-color: #f9a825;
+                }
+
+        /* Hidden class for sections */
+        .hidden {
+            display: none;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            flex: 1 1 calc(33.333% - 20px); /* Her bir kartın genişliğini %33.333 yapar ve gap ile hesaba katar */
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+            .card h3 {
+                font-size: 1.2em;
+                color: #005b96;
+                margin-bottom: 10px;
+            }
+
+            .card p {
+                font-size: 2em;
+                color: #f9a825;
+                font-weight: bold;
+            }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li>
+                <a asp-controller="Admin" asp-action="Index" class="@("Index".Equals(ViewContext.RouteData.Values["action"]?.ToString(), StringComparison.OrdinalIgnoreCase) ? "active" : "")">
+                    Index
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="AddEventToUser" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "AddEventToUser" ? "active" : "")">
+                    Etkinlik Ekleme
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="ListEventsWithUsers" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "AddEventToUser" ? "active" : "")">
+                    Etkinlikleri Listele
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1 style="text-align: center;">Dilek Yıldızım Sensin Yönetim Paneli</h1>
+
+        </header>
+
+        <!-- Sayfa içeriği burada render edilecek -->
+        @RenderBody()
+
+    </div>
+
+    <script>
+        document.querySelectorAll('.sidebar ul li a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+
+                if (href.startsWith("#")) {
+                    e.preventDefault();
+                    document.querySelectorAll('.main-content section').forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    document.querySelector(href).classList.remove('hidden');
+                    document.querySelectorAll('.sidebar ul li a').forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+    </script>
+
+
+</body>
+</html>

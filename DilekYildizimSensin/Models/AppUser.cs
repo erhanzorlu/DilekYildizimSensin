@@ -18,5 +18,6 @@ namespace DilekYildizimSensin.Models
         public string? ImageUrl { get; set; }
 
         public ICollection<UserBadge> UserBadges { get; set; }
+        public ICollection<UserEvent> UserEvents { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using DilekYildizimSensin.Dtos
+@model IndexViewModel
+@{
     Layout = null;
 }
 
@@ -183,17 +185,18 @@
             <div class="card">
                 <h2>Liderlik Tablosu</h2>
                 <ul>
-                    <li><img src="https://static.vecteezy.com/system/resources/previews/024/183/525/non_2x/avatar-of-a-man-portrait-of-a-young-guy-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Sincap">1- Erhan - 70P</li>
-                    <li><img src="https://img.freepik.com/premium-photo/graphic-designer-digital-avatar-generative-ai_934475-9292.jpg" alt="Müdür">2- Umut - 55P</li>
-                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh_xoMu0dE0bkjz2yoJWIv80Oj9uLAaDmYTNh38drWDAA4itZn2GZJBiOnk7QKEOJ1Xfg&usqp=CAU" alt="Müdür">3- Yüce Honos - 55P</li>
-                    <li><img src="https://img.freepik.com/free-vector/beauty-woman-with-green-blouse-character_24877-83554.jpg" alt="Müdür">4- Selena - 55P</li>
-                    <li><img src="https://static.vecteezy.com/system/resources/thumbnails/004/899/680/small_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg" alt="Müdür">5- Aslı - 55P</li>
+                    @foreach (var item in Model.GetTop5UsersByScoreAsync)
+                    {
+                        <li><img src="@item.ImageUrl" alt="Sincap">@item.FirstName @item.LastName - @item.Score</li>
+                    }
+                   
+                 
                 </ul>
             </div>
 
             <div class="card">
                 <h2>Topladığınız Puan</h2>
-                <div class="score-circle">50</div>
+                <div class="score-circle">@Model.AppUserDto.Score</div>
             </div>
         </div>
 
@@ -201,14 +204,16 @@
         <div class="card">
             <div class="profile-card">
                 <h2>Profil ve Başarılar</h2>
-                <img src="https://static.vecteezy.com/system/resources/previews/024/183/525/non_2x/avatar-of-a-man-portrait-of-a-young-guy-illustration-of-male-character-in-modern-color-style-vector.jpg" alt="Profile Picture">
-                <p><strong>Rumuz:</strong> Ursula</p>
-                <p><strong>Son Kazanılan:</strong> Yüce gönüllü</p>
+                <img src="@Model.AppUserDto.ImageUrl" alt="Profile Picture">
+                <p><strong>Rumuz:</strong> @Model.AppUserDto.FirstName @Model.AppUserDto.LastName</p>
+                <p><strong>Son Kazanılan:</strong> @Model.GetLatestBadgeAsync.BadgeName</p>
                 <h3>Başarılar</h3>
                 <ul>
-                    <li><img src="https://w7.pngwing.com/pngs/423/1004/png-transparent-medal-gold-winner-badge-achievement-reward-army-champion-awards-icon.png" alt="Gülen Yüz"> Gülen Yüz</li>
-                    <li><img src="https://static.vecteezy.com/system/resources/previews/014/606/031/original/golden-yellow-trophy-icon-for-the-winner-of-a-sports-event-png.png" alt="Karda Yürüyen"> Karda Yürüyen</li>
-                    <li><img src="https://www.shutterstock.com/image-vector/transparent-winner-icon-png-vector-260nw-1945885621.jpg" alt="Yüce gönüllü"> Yüce gönüllü</li>
+                    @foreach (var item in Model.AppUserDto.UserBadges)
+                    {
+                        <li><img src="@item.BadgeIcon" alt="Resimvardınormalde"> @item.BadgeName</li>
+                    }
+                                   
                 </ul>
             </div>
         </div>
