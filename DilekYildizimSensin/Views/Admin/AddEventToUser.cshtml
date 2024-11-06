@@ -5,6 +5,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 <h2>Kullanıcılara Etkinlik Ekle</h2>
 
 <form asp-action="AddEventToUser" method="post" class="event-form" id="addEventForm">
@@ -57,3 +59,24 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 </style>
+
+<!-- Toastify JS -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script>
+    // Başarı mesajı varsa Toastify bildirimini göster
+    @if (TempData["Fail"] != null)
+    {
+        <text>
+                Toastify({
+                    text: "@TempData["Fail"]",
+                duration: 3000,
+                gravity: "top", // Bildirimin üstte görünmesi
+                position: "center", // Bildirimin merkezde görünmesi
+                backgroundColor: "#af4c54", // Yeşil arka plan rengi (başarı)
+                stopOnFocus: true, // Kullanıcı bildirim üstüne tıklayınca duraklatma
+                className: "toast-message"
+                                }).showToast();
+        </text>
+    }
+
+</script>   

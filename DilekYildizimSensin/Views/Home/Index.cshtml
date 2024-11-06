@@ -205,15 +205,20 @@
             <div class="profile-card">
                 <h2>Profil ve Başarılar</h2>
                 <img src="@Model.AppUserDto.ImageUrl" alt="Profile Picture">
-                <p><strong>Rumuz:</strong> @Model.AppUserDto.FirstName @Model.AppUserDto.LastName</p>
-                <p><strong>Son Kazanılan:</strong> @Model.GetLatestBadgeAsync.BadgeName</p>
+                <p><strong>Rumuz:</strong> @Model.AppUserDto.NickName</p>
+                @if (@Model.GetLatestBadgeAsync != null && @Model.GetLatestBadgeAsync.BadgeName != null) {<p><strong>Son Kazanılan:</strong> @Model.GetLatestBadgeAsync.BadgeName</p>}              
+                else{<p><strong>Son Kazanılan:</strong> Yok</p>}
+
                 <h3>Başarılar</h3>
                 <ul>
-                    @foreach (var item in Model.AppUserDto.UserBadges)
-                    {
-                        <li><img src="@item.BadgeIcon" alt="Resimvardınormalde"> @item.BadgeName</li>
-                    }
-                                   
+                    @if (Model.AppUserDto.UserBadges.Count > 1)
+                    {@foreach (var item in Model.AppUserDto.UserBadges)
+                        {
+                            <li><img src="@item.BadgeIcon" alt="Resimvardınormalde"> @item.BadgeName</li>
+                        }           }
+                    else  {<li> Yok</li>}
+                      
+
                 </ul>
             </div>
         </div>

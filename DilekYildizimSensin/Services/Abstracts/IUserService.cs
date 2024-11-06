@@ -12,6 +12,6 @@ namespace DilekYildizimSensin.Services.Abstracts
         Task<List<UserEvent>> CreateUserEventsAsync(List<Guid> userIds, Guid eventId, DateTime eventDate, CancellationToken cancellationToken = default);
         Task<List<AppUser>> SearchUsersAsync(string searchTerm);
         Task<List<UserEvent>> ListUserEventsAsync();
-        Task CheckAndAssignBadgesAsync(List<Guid> userIds, Guid eventId);
+        Task CheckAndAssignBadgesAsync(List<Guid> userIds, Guid eventId, DateTime eventDate);
     }
 }

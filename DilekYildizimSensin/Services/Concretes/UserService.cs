@@ -67,7 +67,7 @@ namespace DilekYildizimSensin.Services.Concretes
             return topUsers;
         }
 
-        public async Task CheckAndAssignBadgesAsync(List<Guid> userIds, Guid eventId)
+        public async Task CheckAndAssignBadgesAsync(List<Guid> userIds, Guid eventId, DateTime eventDate)
         {
             var eventInfo = await _context.Events.FindAsync(eventId);
             if (eventInfo == null) throw new Exception("Etkinlik bulunamadı");
@@ -95,7 +95,7 @@ namespace DilekYildizimSensin.Services.Concretes
 
                         if (dilekCount >= 3)
                         {
-                            await AssignBadgeAsync(user, "Karda Yürüyen");
+                            await AssignBadgeAsync(user, "Karda Yürüyen", eventDate);
                         }
                         break;
 
@@ -106,7 +106,7 @@ namespace DilekYildizimSensin.Services.Concretes
 
                         if (dernekCount >= 2)
                         {
-                            await AssignBadgeAsync(user, "Gülen Yüz");
+                            await AssignBadgeAsync(user, "Gülen Yüz", eventDate);
                         }
                         break;
 
@@ -116,7 +116,7 @@ namespace DilekYildizimSensin.Services.Concretes
 
                         if (ofisCount >= 2)
                         {
-                            await AssignBadgeAsync(user, "Yüce Gönüllü");
+                            await AssignBadgeAsync(user, "Yüce Gönüllü", eventDate);
                         }
                         break;
 
@@ -128,7 +128,7 @@ namespace DilekYildizimSensin.Services.Concretes
         }
 
 
-        private async Task AssignBadgeAsync(AppUser user, string badgeName)
+        private async Task AssignBadgeAsync(AppUser user, string badgeName, DateTime eventDate)
         {
             // Rozetin mevcut olup olmadığını kontrol et
             var badge = await _context.Badges.FirstOrDefaultAsync(b => b.BadgeName == badgeName);
@@ -142,10 +142,22 @@ namespace DilekYildizimSensin.Services.Concretes
                     AppUserId = user.Id,
                     BadgeId = badge.Id,
                 };
-                _context.UserBadges.Add(userBadge);
-          
-                }
+                var appUser= await _context.Users.FindAsync(user.Id);
+                appUser.Score+=10; // Kullanıcıya 10 puan ekle;
+                _context.Add(userBadge);
+
+                var userVolunteerScore = new VolunteerScore
+                {
+                    AppUserId = appUser.Id,
+                    Score = 10,
+                    Year = eventDate.Year,
+                    Month = eventDate.Month
+
+                };
+                _context.Add(userVolunteerScore);
             }
+
+         }
 
 
 
@@ -153,6 +165,7 @@ namespace DilekYildizimSensin.Services.Concretes
         public async Task<List<UserEvent>> CreateUserEventsAsync(List<Guid> userIds, Guid eventId, DateTime eventDate, CancellationToken cancellationToken = default)
         {
             var userEvents = new List<UserEvent>();
+            var userVolunteerScores = new List<VolunteerScore>();
 
             // Etkinliğin geçerli olup olmadığını kontrol et
             var selectedEvent = await _context.Events.FindAsync(eventId);
@@ -163,8 +176,8 @@ namespace DilekYildizimSensin.Services.Concretes
             foreach (var userId in userIds)
             {
                 var appUser = await _context.Users.FindAsync(userId);
-                if (appUser == null)
-                    throw new Exception($"Kullanıcı bulunamadı: {userId}");
+                if (appUser == null) throw new Exception($"Kullanıcı bulunamadı: {userId}");
+
 
                 var userEvent = new UserEvent
                 {
@@ -178,11 +191,24 @@ namespace DilekYildizimSensin.Services.Concretes
                 };
 
                 userEvents.Add(userEvent);
-                appUser.Score += 5; // Kullanıcıya 5 puan ekle
-            }
 
-            // Toplu olarak ekleme ve kaydetme
+                var userVolunteerScore = new VolunteerScore
+                {
+                    AppUserId = userId,
+                    Score = 5,
+                    CreatedDate = DateTime.Now,
+                    Year=eventDate.Year,
+                    Month = eventDate.Month
+
+                };
+                userVolunteerScores.Add(userVolunteerScore);
+                appUser.Score += 5; // Kullanıcıya 5 puan ekle
+           
+            }
             _context.AddRange(userEvents);
+            _context.AddRange(userVolunteerScores);
+            // Toplu olarak ekleme ve kaydetme
+
             await _context.SaveChangesAsync();
 
             return userEvents;

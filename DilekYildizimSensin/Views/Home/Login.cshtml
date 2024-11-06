@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Dilek Yıldızım Sensin</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <style>
         /* General Styles */
         body {
@@ -96,5 +97,26 @@
         </form>
         <a href="@Url.Action("Register", "Home")" class="register-link">Hesabınız yoksa buraya tıklayınız...</a>
     </div>
+
+    <!-- Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        // Başarı mesajı varsa Toastify bildirimini göster
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+                        Toastify({
+                            text: "@TempData["SuccessMessage"]",
+                            duration: 3000,
+                            gravity: "top", // Bildirimin üstte görünmesi
+                            position: "center", // Bildirimin merkezde görünmesi
+                            backgroundColor: "#4CAF50", // Yeşil arka plan rengi (başarı)
+                            stopOnFocus: true, // Kullanıcı bildirim üstüne tıklayınca duraklatma
+                            className: "toast-message"
+                        }).showToast();
+            </text>
+        }
+    </script>
+
 </body>
 </html>

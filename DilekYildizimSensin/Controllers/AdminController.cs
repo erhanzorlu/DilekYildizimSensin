@@ -4,7 +4,6 @@ using DilekYildizimSensin.Services.Abstracts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 using System.Security.Claims;
 
 namespace DilekYildizimSensin.Controllers
@@ -43,6 +42,9 @@ namespace DilekYildizimSensin.Controllers
             // Kullanıcı bilgilerini View'e ilet
             return View(currentUser);
         }
+
+
+      
 
 
         [HttpGet]
@@ -93,18 +95,37 @@ namespace DilekYildizimSensin.Controllers
             try
            {
                 // UserService üzerinden çoklu kullanıcı için etkinlik kaydı oluştur
-                //await _userService.CreateUserEventsAsync(model.SelectedUserIds, model.EventId, model.EventDate);
-                await _userService.CheckAndAssignBadgesAsync(model.SelectedUserIds, model.EventId);
-                TempData["SuccessMessage"] = "Etkinlik kaydı başarıyla oluşturuldu.";
-                return RedirectToAction("Index");
+                await _userService.CreateUserEventsAsync(model.SelectedUserIds, model.EventId, model.EventDate);
+                await _userService.CheckAndAssignBadgesAsync(model.SelectedUserIds, model.EventId,model.EventDate);
+                TempData["SuccessMessage"] = "Etkinlik kaydi basariyla olusturuldu.";
+                return RedirectToAction("ListEventsWithUsers");
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError("", ex.Message);
                 model.Users = await _context.Users.ToListAsync();
                 model.Events = await _context.Events.ToListAsync();
+                TempData["Fail"] = "Etkinlik kaydi olusturulamadi.Kullanici secilmedi!!";
                 return View(model);
             }
+        }
+
+        // Silme işlemi
+        [HttpPost]
+        public async Task<IActionResult> DeleteEvent(Guid id)
+        {
+            var userEvent = await _context.UserEvents.FindAsync(id);
+            if (userEvent == null)
+            {
+                TempData["SuccessMessage"] = "Etkinlik bulunamadı!";
+                return RedirectToAction("ListEventsWithUsers");
+            }
+
+            _context.UserEvents.Remove(userEvent);
+            await _context.SaveChangesAsync();
+
+            TempData["SuccessMessage"] = "Etkinlik başarıyla silindi!";
+            return RedirectToAction("ListEventsWithUsers");
         }
     }
 }

@@ -45,6 +45,7 @@ namespace DilekYildizimSensin.Controllers
                         Gender = appUser.Gender.ToString(),
                         Age = appUser.Age,
                         Score = appUser.Score,
+                        NickName= appUser.UserName,
                         ImageUrl = appUser.ImageUrl,
                         UserBadges = appUser.UserBadges
                             .Select(ub => new BadgeDto
@@ -72,10 +73,56 @@ namespace DilekYildizimSensin.Controllers
         }
 
 
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterDto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // Yeni kullanýcý oluþturma
+            var user = new AppUser
+            {
+                UserName = model.UserName,
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Gender = model.Gender,
+                Age = model.Age,
+                ImageUrl = model.ImageUrl,
+                Score = 0 // Varsayýlan baþlangýç puaný
+
+            };
+
+            // Kullanýcýyý kaydetme
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                // Yeni kullanýcýya "User" rolünü atama
+                await _userManager.AddToRoleAsync(user, "User");
+
+                TempData["SuccessMessage"] = "Kayit basarili!";
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
+            return View(model);
+        }
+
 
         public IActionResult Login()
         {
