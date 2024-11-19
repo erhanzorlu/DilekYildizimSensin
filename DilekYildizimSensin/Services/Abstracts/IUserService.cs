@@ -8,7 +8,7 @@ namespace DilekYildizimSensin.Services.Abstracts
     {
         Task<List<Badge>> GetUserBadgesAsync(Guid userId, CancellationToken cancellationToken = default);
         Task<Badge> GetLatestBadgeAsync(Guid userId);
-        Task<List<AppUserDto>> GetTop5UsersByScoreAsync();
+        Task<List<AppUserDto>> GetTop10UsersByScoreAsync();
         Task<List<UserEvent>> CreateUserEventsAsync(List<Guid> userIds, Guid eventId, DateTime eventDate, CancellationToken cancellationToken = default);
         Task<List<AppUser>> SearchUsersAsync(string searchTerm);
         Task<List<UserEvent>> ListUserEventsAsync();

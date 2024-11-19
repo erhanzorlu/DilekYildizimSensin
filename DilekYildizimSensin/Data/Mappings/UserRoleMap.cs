@@ -27,7 +27,13 @@ namespace DilekYildizimSensin.Data.Mappings
             {
                 UserId = Guid.Parse("3AA42229-1C0F-4630-8C1A-DB879ECD0427"),
                 RoleId = Guid.Parse("EDF6C246-41D8-475F-8D92-41DDDAC3AEFB")
-            });
+            }
+
+
+
+            );
+
+
         }
     }
 }

@@ -21,7 +21,18 @@ namespace DilekYildizimSensin.Controllers
             _signInManager = signInManager;
             _userService = userService;
         }
+        public async Task<IActionResult> BestOfs()
+        {
+            var getTop10UsersByScoreAsync = await _userService.GetTop10UsersByScoreAsync();
 
+            var indexViewModel = new IndexViewModel
+            {
+                GetTop10UsersByScoreAsync = getTop10UsersByScoreAsync
+
+            };
+
+            return View(indexViewModel);
+        }
         public async Task<IActionResult> Index()
         {
             AppUserDto appUserDto = null;
@@ -59,13 +70,13 @@ namespace DilekYildizimSensin.Controllers
             }
 
             var latestBadge =await _userService.GetLatestBadgeAsync(appUserDto.Id);
-            var getTop5UsersByScoreAsync = await _userService.GetTop5UsersByScoreAsync();
+            var getTop5UsersByScoreAsync = await _userService.GetTop10UsersByScoreAsync();
 
             var indexViewModel = new IndexViewModel
             {
                 AppUserDto = appUserDto,
                 GetLatestBadgeAsync=latestBadge,
-                GetTop5UsersByScoreAsync=getTop5UsersByScoreAsync
+                GetTop10UsersByScoreAsync=getTop5UsersByScoreAsync
                 
             };
 

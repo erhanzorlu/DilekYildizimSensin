@@ -124,7 +124,7 @@ namespace DilekYildizimSensin.Data.Mappings
 
             var user3 = new AppUser
             {
-                Id = Guid.Parse("A5B6D3EA-7BAA-49B8-808C-2D7D72F9C0D1"),
+                Id = Guid.Parse("a5b6d3ea-7baa-49b8-808c-2d7d72f9c0d1"),
                 UserName = "cemakyildiz",
                 NormalizedUserName = "CEMAKYILDIZ@GMAIL.COM",
                 Email = "cemakyildiz@gmail.com",
@@ -143,7 +143,7 @@ namespace DilekYildizimSensin.Data.Mappings
 
             var user4 = new AppUser
             {
-                Id = Guid.Parse("E48DB928-A5FC-4A9C-B72E-6373A453C6C7"),
+                Id = Guid.Parse("e48db928-a5fc-4a9c-b72e-6373a453c6c7"),
                 UserName = "serdarkaya",
                 NormalizedUserName = "SERDARKAYA@GMAIL.COM",
                 Email = "serdarkaya@gmail.com",
@@ -162,7 +162,7 @@ namespace DilekYildizimSensin.Data.Mappings
 
             var user5 = new AppUser
             {
-                Id = Guid.Parse("99F21431-F75D-4B53-B0BC-C46A5A8DB1A9"),
+                Id = Guid.Parse("99f21431-f75d-4b53-b0bc-c46a5a8db1a9"),
                 UserName = "elifdemir",
                 NormalizedUserName = "ELIFDEMIR@GMAIL.COM",
                 Email = "elifdemir@gmail.com",
@@ -179,10 +179,105 @@ namespace DilekYildizimSensin.Data.Mappings
                 Score = 340,
             };
 
+            var user6 = new AppUser
+            {
+                Id = Guid.Parse("C60543D1-ED62-495B-AE86-7038FCCE59F1"),
+                UserName = "ahmetyilmaz",
+                NormalizedUserName = "AHMETYILMAZ@GMAIL.COM",
+                Email = "ahmetyilmaz@gmail.com",
+                NormalizedEmail = "AHMETYILMAZ@GMAIL.COM",
+                PhoneNumber = "+905439999984",
+                FirstName = "Ahmet",
+                LastName = "Yılmaz",
+                PhoneNumberConfirmed = true,
+                EmailConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image",
+                Age = 35,
+                Gender = Models.Enums.GenderEnum.Erkek,
+                Score = 420,
+            };
+
+            var user7 = new AppUser
+            {
+                Id = Guid.Parse("D2E3B435-8C7F-4905-BCDE-223344556677"),
+                UserName = "aysegunes",
+                NormalizedUserName = "AYSEGUNES@GMAIL.COM",
+                Email = "aysegunes@gmail.com",
+                NormalizedEmail = "AYSEGUNES@GMAIL.COM",
+                PhoneNumber = "+905439999985",
+                FirstName = "Ayşe",
+                LastName = "Güneş",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image",
+                Age = 28,
+                Gender = Models.Enums.GenderEnum.Kadın,
+                Score = 310,
+            };
+
+            var user8 = new AppUser
+            {
+                Id = Guid.Parse("8515F6A5-2F62-4CC9-A084-9AC934553CBC"),
+                UserName = "mehmetcan",
+                NormalizedUserName = "MEHMETCAN@GMAIL.COM",
+                Email = "mehmetcan@gmail.com",
+                NormalizedEmail = "MEHMETCAN@GMAIL.COM",
+                PhoneNumber = "+905439999986",
+                FirstName = "Mehmet",
+                LastName = "Can",
+                PhoneNumberConfirmed = true,
+                EmailConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image",
+                Age = 32,
+                Gender = Models.Enums.GenderEnum.Erkek,
+                Score = 500,
+            };
+
+            var user9 = new AppUser
+            {
+                Id = Guid.Parse("71216B21-B5DD-417F-96D5-E6BEE5B33F6D"),
+                UserName = "zeynepkara",
+                NormalizedUserName = "ZEYNEPKARA@GMAIL.COM",
+                Email = "zeynepkara@gmail.com",
+                NormalizedEmail = "ZEYNEPKARA@GMAIL.COM",
+                PhoneNumber = "+905439999987",
+                FirstName = "Zeynep",
+                LastName = "Kara",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = true,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image",
+                Age = 26,
+                Gender = Models.Enums.GenderEnum.Kadın,
+                Score = 280,
+            };
+
+            var user10 = new AppUser
+            {
+                Id = Guid.Parse("8C01427B-4877-4513-B4BF-B5FA9093A279"),
+                UserName = "mertturan",
+                NormalizedUserName = "MERTTURAN@GMAIL.COM",
+                Email = "mertturan@gmail.com",
+                NormalizedEmail = "MERTTURAN@GMAIL.COM",
+                PhoneNumber = "+905439999988",
+                FirstName = "Mert",
+                LastName = "Turan",
+                PhoneNumberConfirmed = true,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image",
+                Age = 30,
+                Gender = Models.Enums.GenderEnum.Erkek,
+                Score = 380,
+            };
+
 
             admin.PasswordHash = CreatePasswordHash(admin, "123456");
 
-            builder.HasData(superadmin, admin,user1, user2, user3, user4, user5);
+            builder.HasData(superadmin, admin,user1, user2, user3, user4, user5,user6,user7,user8,user9,user10);
 
         }
         private string CreatePasswordHash(AppUser user, string password)

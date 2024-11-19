@@ -49,11 +49,11 @@ namespace DilekYildizimSensin.Services.Concretes
             return latestBadge;
         }
 
-        public async Task<List<AppUserDto>> GetTop5UsersByScoreAsync()
+        public async Task<List<AppUserDto>> GetTop10UsersByScoreAsync()
         {
             var topUsers = await _userManager.Users
                 .OrderByDescending(u => u.Score)
-                .Take(5)
+                .Take(10)
                 .Select(u => new AppUserDto
                 {
                     Id = u.Id,

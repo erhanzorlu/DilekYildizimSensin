@@ -185,7 +185,7 @@
             <div class="card">
                 <h2>Liderlik Tablosu</h2>
                 <ul>
-                    @foreach (var item in Model.GetTop5UsersByScoreAsync)
+                    @foreach (var item in Model.GetTop10UsersByScoreAsync)
                     {
                         <li><img src="@item.ImageUrl" alt="Sincap">@item.FirstName @item.LastName - @item.Score</li>
                     }
