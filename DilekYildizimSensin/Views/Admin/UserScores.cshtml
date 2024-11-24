@@ -1,0 +1,45 @@
+﻿@using DilekYildizimSensin.ViewModels
+@using System.Globalization
+@model UserScoresViewModel
+@{
+    Layout = "_AdminLayout";
+}
+<section>
+    <h2>Kullanıcı Aylık Puanları</h2>
+
+    <!-- Kullanıcı seçme formu -->
+    <form asp-controller="Admin" asp-action="UserScores" method="post">
+        <label for="userId">Kullanıcı Seç:</label>
+        <select id="userId" name="userId" required>
+            <option value="">-- Seçiniz --</option>
+            @foreach (var user in Model.Users)
+            {
+                <option value="@user.Id" class="@(Model.SelectedUserId.HasValue && user.Id == Model.SelectedUserId ? "selected" : "")">
+                    @user.UserName
+                </option>
+
+
+            }
+        </select>
+        <button type="submit">Göster</button>
+    </form>
+
+    <!-- Aylık Puan Tablosu -->
+    @if (Model.MonthlyScores != null && Model.MonthlyScores.Any())
+    {
+        <div class="stats-container">
+            @foreach (var score in Model.MonthlyScores)
+            {
+                <div class="card">
+                    <!-- Ay isimlerini dinamik olarak göster -->
+                    <h3>Ay: @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(score.Key)</h3>
+                    <p>@score.Value Puan</p>
+                </div>
+            }
+        </div>
+    }
+    else if (Model.SelectedUserId.HasValue)
+    {
+        <p style="margin-top: 20px; color: red;">Bu kullanıcı için kayıtlı puan bulunamadı.</p>
+    }
+</section>

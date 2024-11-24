@@ -3,136 +3,129 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dilek Yıldızım Sensin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Leaderboard with Logo</title>
+
     <style>
-        /* Genel Stiller */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #e0f7fa;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #7CB9E8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        /* Başlık Stili */
-        h1 {
-            font-size: 2.5em;
+        .leaderboard-container {
+            width: 300px;
+            background-color: #0076CE;
+            border-radius: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+            .logo img {
+                width: 300px;
+                height: auto;
+            }
+
+        .leaderboard-header {
+            background-color: #ff6f9c;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 10px auto 20px;
+            display: inline-block;
+            width: 200px;
+        }
+
+            .leaderboard-header h1 {
+                color: #fff;
+                font-size: 1.2rem;
+                margin: 0;
+                font-weight: bold;
+            }
+
+        .leaderboard-list {
+            padding: 0 20px;
+        }
+
+        .list-item {
+            background-color: #fdebd4;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #0076CE;
+            justify-content: start;
+        }
+
+        .first-place {
+            background: linear-gradient(145deg, #ffd700, #ffa500);
+            color: #0076CE;
+        }
+
+        .list-item span {
+            margin-left: 10px;
+        }
+
+        .action-button {
             margin-top: 20px;
-            font-weight: 600;
-            color: #005b96;
-            text-align: center;
         }
 
-        .divider {
-            width: 100%;
-            height: 2px;
-            background-color: #005b96;
-            margin: 5px 0 15px; /* Aralığı biraz daralttık */
-        }
-
-        /* Kart Stili */
-        .card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 15px; /* Genel iç boşluk azaltıldı */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            width: 90%;
-            max-width: 600px;
-        }
-
-            .card h2 {
-                color: #005b96;
-                margin-bottom: 10px;
-                font-weight: 600;
+            .action-button button {
+                background: linear-gradient(145deg, #ffd700, #ffa500);
+                border: none;
+                border-radius: 20px;
+                color: #fff;
+                padding: 10px 20px;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: 0.3s ease;
             }
 
-            /* Liste Stilleri */
-            .card ul {
-                list-style-type: none;
-                padding: 0;
-            }
-
-                .card ul li {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    margin: 5px 0; /* Elemanlar arası boşluk azaltıldı */
-                    padding: 8px; /* Genel iç boşluk azaltıldı */
-                    background-color: #ffffff;
-                    border-radius: 8px;
-                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                .action-button button:hover {
+                    background: linear-gradient(145deg, #ffa500, #ffd700);
+                    transform: scale(1.05);
                 }
 
-                    /* İlk Üç Kişi İçin Özel Stiller */
-                    .card ul li:first-child {
-                        background: linear-gradient(90deg, #ffcc00, #ffa500);
-                        color: #ffffff;
-                        font-weight: bold;
-                    }
-
-                    .card ul li:nth-child(2) {
-                        background: linear-gradient(90deg, #c0c0c0, #b0b0b0);
-                        color: #ffffff;
-                        font-weight: bold;
-                    }
-
-                    .card ul li:nth-child(3) {
-                        background: linear-gradient(90deg, #cd7f32, #b87333);
-                        color: #ffffff;
-                        font-weight: bold;
-                    }
-
-                    /* Profil Resmi ve Yazı Stili */
-                    .card ul li img {
-                        width: 40px; /* Resim boyutu biraz küçültüldü */
-                        height: 40px;
-                        margin-right: 10px; /* Resim ile yazı arasındaki boşluk azaltıldı */
-                        border-radius: 50%;
-                        border: 2px solid #fff;
-                    }
-
-                    .card ul li .name {
-                        font-weight: 600;
-                        flex: 1;
-                        margin-right: 5px; /* İsim ve puan arasındaki boşluk azaltıldı */
-                        text-align: left;
-                    }
-
-                    .card ul li .score {
-                        font-size: 0.9em; /* Yazı boyutu biraz küçültüldü */
-                        text-align: right;
-                    }
     </style>
+
 </head>
 <body>
+    <div class="leaderboard-container">
+        <div class="logo">
+            <img src="Logo2.png" alt="Make-A-Wish Logo">
+        </div>
+        <div class="leaderboard-header">
+            <h1>KASIM AYI LİDERLİK TABLOSU</h1>
+        </div>
+        <div class="leaderboard-list">
+            <div class="list-item first-place">
+                <span>1.Hazal Sertkaya: 55 puan</span>
+            </div>
+            <div class="list-item">
+                <span>2.İrem Keleş: 45 puan</span>
+            </div>
+          
 
-    <img src="~/Logo2.png" alt="Dilek Yıldızım Sensin" style="width:500px; height:150px;"> <!-- Logo boyutu küçültüldü -->
-
-    <div class="divider"></div>
-
-    <div class="card">
-        <h2>Liderlik Tablosu</h2>
-        <ul>
-            @foreach (var item in Model.GetTop10UsersByScoreAsync)
-            {
-                <li>
-                    <img src="@item.ImageUrl" alt="Profil Resmi">
-                    <span class="name">@item.FirstName @item.LastName</span>
-                    <span class="score">Puan: @item.Score</span>
-                </li>
-            }
-        </ul>
+        </div>
     </div>
-
 </body>
 </html>

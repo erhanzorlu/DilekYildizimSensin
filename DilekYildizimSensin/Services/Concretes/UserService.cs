@@ -17,6 +17,19 @@ namespace DilekYildizimSensin.Services.Concretes
             _context = context;
             _userManager = userManager;
         }
+        public async Task<Dictionary<int, int>> GetMonthlyScoresAsync(Guid userId)
+        {
+            // Verilen UserId'ye göre veritabanından ay bazında toplam puanları grupluyoruz.
+            var monthlyScores = await _context.VolunteerScores
+                .Where(s => s.AppUserId == userId)
+                .GroupBy(s => s.Month)
+                .Select(g => new { Month = g.Key, TotalScore = g.Sum(s => s.Score) })
+                .ToListAsync();
+
+            // Dictionary olarak döndürüyoruz: Ay -> Toplam Puan
+            return monthlyScores.ToDictionary(x => x.Month, x => x.TotalScore);
+        }
+
 
         public async Task<List<UserEvent>> ListUserEventsAsync()
         {
@@ -75,48 +88,43 @@ namespace DilekYildizimSensin.Services.Concretes
             foreach (var userId in userIds)
             {
                 var user = await _context.Users
-                     
-            .Include(u => u.UserEvents)
-                .ThenInclude(ue => ue.Event) // Event bilgilerini UserEvents ile birlikte yükle
-            .Include(u => u.UserBadges)
-            .FirstOrDefaultAsync(u => u.Id == userId);
+                    .Include(u => u.UserEvents)
+                        .ThenInclude(ue => ue.Event) // Event bilgilerini UserEvents ile birlikte yükle
+                    .Include(u => u.UserBadges)
+                    .FirstOrDefaultAsync(u => u.Id == userId);
 
                 if (user == null) continue;
 
                 // Etkinlik türüne göre sadece ilgili koşulları kontrol et
                 switch (eventInfo.EventName)
                 {
-                    case "Dilek Alma Etkinliği":
                     case "Dilek Gerçekleştirme Etkinliği":
-                        var dilekCount = user.UserEvents
-                            .Count(ue => ue.EventId == eventId ||
-                                         ue.Event.EventName == "Dilek Alma Etkinliği" ||
-                                         ue.Event.EventName == "Dilek Gerçekleştirme Etkinliği");
+                        var dilekGerceklestirmeCount = user.UserEvents
+                            .Count(ue => ue.Event.EventName == "Dilek Gerçekleştirme Etkinliği");
 
-                        if (dilekCount >= 3)
+                        if (dilekGerceklestirmeCount >= 3)
                         {
-                            await AssignBadgeAsync(user, "Karda Yürüyen", eventDate);
+                            await AssignBadgeAsync(user, "Dilek Perisi", eventDate);
                         }
                         break;
 
-                    case "Stant Etkinliği":
-                    case "Toplantı":
-                        var dernekCount = user.UserEvents
-                            .Count(ue => ue.EventId == eventId || ue.Event.EventName == "Stant Etkinliği" || ue.Event.EventName == "Toplantı");
+                    case "Diğer Gönüllü Faaliyetleri":
+                        var digerFaaliyetCount = user.UserEvents
+                            .Count(ue => ue.Event.EventName == "Diğer Gönüllü Faaliyetleri");
 
-                        if (dernekCount >= 2)
+                        if (digerFaaliyetCount >= 3)
                         {
                             await AssignBadgeAsync(user, "Gülen Yüz", eventDate);
                         }
                         break;
 
-                    case "Ofis Etkinliği":
-                        var ofisCount = user.UserEvents
-                            .Count(ue => ue.EventId == eventId || ue.Event.EventName == "Ofis Etkinliği");
+                    case "Dilek Alma Etkinliği":
+                        var dilekAlmaCount = user.UserEvents
+                            .Count(ue => ue.Event.EventName == "Dilek Alma Etkinliği");
 
-                        if (ofisCount >= 2)
+                        if (dilekAlmaCount >= 3)
                         {
-                            await AssignBadgeAsync(user, "Yüce Gönüllü", eventDate);
+                            await AssignBadgeAsync(user, "Dilek Yıldızı", eventDate);
                         }
                         break;
 
@@ -124,8 +132,10 @@ namespace DilekYildizimSensin.Services.Concretes
                         break;
                 }
             }
+
             await _context.SaveChangesAsync();
         }
+
 
 
         private async Task AssignBadgeAsync(AppUser user, string badgeName, DateTime eventDate)
@@ -143,13 +153,13 @@ namespace DilekYildizimSensin.Services.Concretes
                     BadgeId = badge.Id,
                 };
                 var appUser= await _context.Users.FindAsync(user.Id);
-                appUser.Score+=10; // Kullanıcıya 10 puan ekle;
+                appUser.Score+=20; // Kullanıcıya 20 puan ekle;
                 _context.Add(userBadge);
 
                 var userVolunteerScore = new VolunteerScore
                 {
                     AppUserId = appUser.Id,
-                    Score = 10,
+                    Score = 20,
                     Year = eventDate.Year,
                     Month = eventDate.Month
 
@@ -170,7 +180,7 @@ namespace DilekYildizimSensin.Services.Concretes
             // Etkinliğin geçerli olup olmadığını kontrol et
             var selectedEvent = await _context.Events.FindAsync(eventId);
             if (selectedEvent == null) throw new Exception("Etkinlik bulunamadı");
-            if(userIds.Count==0) throw new Exception("Kullanıcılar bulunamadı");
+            if (userIds.Count == 0) throw new Exception("Kullanıcılar bulunamadı");
 
             // Her kullanıcı için UserEvent kaydı oluştur
             foreach (var userId in userIds)
@@ -178,6 +188,22 @@ namespace DilekYildizimSensin.Services.Concretes
                 var appUser = await _context.Users.FindAsync(userId);
                 if (appUser == null) throw new Exception($"Kullanıcı bulunamadı: {userId}");
 
+                // Etkinlik türüne göre puanlama
+                int scoreToAdd = 0;
+                switch (selectedEvent.EventName)
+                {
+                    case "Dilek Gerçekleştirme Etkinliği":
+                        scoreToAdd = 15;
+                        break;
+                    case "Diğer Gönüllü Faaliyetleri":
+                        scoreToAdd = 10;
+                        break;
+                    case "Dilek Alma Etkinliği":
+                        scoreToAdd = 5;
+                        break;
+                    default:
+                        throw new Exception("Geçersiz etkinlik türü");
+                }
 
                 var userEvent = new UserEvent
                 {
@@ -195,24 +221,24 @@ namespace DilekYildizimSensin.Services.Concretes
                 var userVolunteerScore = new VolunteerScore
                 {
                     AppUserId = userId,
-                    Score = 5,
+                    Score = scoreToAdd,
                     CreatedDate = DateTime.Now,
-                    Year=eventDate.Year,
+                    Year = eventDate.Year,
                     Month = eventDate.Month
-
                 };
                 userVolunteerScores.Add(userVolunteerScore);
-                appUser.Score += 5; // Kullanıcıya 5 puan ekle
-           
+                appUser.Score += scoreToAdd; // Kullanıcıya uygun puanı ekle
             }
+
             _context.AddRange(userEvents);
             _context.AddRange(userVolunteerScores);
-            // Toplu olarak ekleme ve kaydetme
 
+            // Toplu olarak ekleme ve kaydetme
             await _context.SaveChangesAsync();
 
             return userEvents;
         }
+
 
 
         public async Task<List<AppUser>> SearchUsersAsync(string searchTerm)

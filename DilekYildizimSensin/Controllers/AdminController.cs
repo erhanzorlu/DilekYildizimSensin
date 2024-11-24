@@ -1,6 +1,7 @@
 ﻿using DilekYildizimSensin.Dtos;
 using DilekYildizimSensin.Models;
 using DilekYildizimSensin.Services.Abstracts;
+using DilekYildizimSensin.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,51 @@ namespace DilekYildizimSensin.Controllers
             _context = context;
             _userService = userService;
         }
+
+
+        [HttpGet]
+        public IActionResult UserScores()
+        {
+            // Kullanıcıları al ve ViewModel'e ata
+            var model = new UserScoresViewModel
+            {
+                SelectedUserId = null,
+                Users = _userManager.Users
+                    .Select(u => new UserScoresViewModel.UserItem
+                    {
+                        Id = u.Id,
+                        UserName = u.UserName
+                    })
+                    .ToList(),
+                MonthlyScores = null // İlk açılışta boş bırakılır
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserScores(Guid userId)
+        {
+            // Seçili kullanıcının aylık puanlarını al
+            var monthlyScores = await _userService.GetMonthlyScoresAsync(userId);
+
+            // ViewModel'i doldur
+            var model = new UserScoresViewModel
+            {
+                SelectedUserId = userId,
+                Users = _userManager.Users
+                    .Select(u => new UserScoresViewModel.UserItem
+                    {
+                        Id = u.Id,
+                        UserName = u.UserName
+                    })
+                    .ToList(),
+                MonthlyScores = monthlyScores // Aylık puanları ViewModel'e ekle
+            };
+
+            return View(model);
+        }
+
 
         public async Task<IActionResult> Index()
         {

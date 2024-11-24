@@ -170,6 +170,20 @@
                     Etkinlikleri Listele
                 </a>
             </li>
+
+            <li>
+                <a asp-controller="Admin" asp-action="UserScores" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "UserScores" ? "active" : "")">
+                    Kullanıcı Puanları
+                </a>
+            </li>
+
+
+            <li>
+                <a asp-controller="Home" asp-action="BestOfs" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "BestOfs" ? "active" : "")">
+                    Ayın En İyileri
+                </a>
+            </li>
+
         </ul>
     </div>
 

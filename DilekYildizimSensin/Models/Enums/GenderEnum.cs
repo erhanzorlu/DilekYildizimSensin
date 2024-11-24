@@ -2,7 +2,7 @@
 {
     public enum GenderEnum
     {
-        Kadın = 1,
+        Kadin = 1,
         Erkek = 2
     }
 }
