@@ -177,6 +177,12 @@
                 </a>
             </li>
 
+            <li>
+                <a asp-controller="Admin" asp-action="ListVolunteerScores" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "ListVolunteerScores" ? "active" : "")">
+                    Gönüllü Puanları Listele
+                </a>
+            </li>
+
 
             <li>
                 <a asp-controller="Home" asp-action="BestOfs" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "BestOfs" ? "active" : "")">

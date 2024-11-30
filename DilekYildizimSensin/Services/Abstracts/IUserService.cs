@@ -14,5 +14,10 @@ namespace DilekYildizimSensin.Services.Abstracts
         Task<List<UserEvent>> ListUserEventsAsync();
         Task CheckAndAssignBadgesAsync(List<Guid> userIds, Guid eventId, DateTime eventDate);
         Task<Dictionary<int, int>> GetMonthlyScoresAsync(Guid userId);
+        Task<List<LeaderboardItemDto>> GetMonthlyLeaderboardAsync(int month);
+        Task<List<UserEvent>> ListUserEventsByNameAsync(string name);
+        Task<List<VolunteerScore>> ListAllScoresAsync();
+        Task<List<VolunteerScore>> ListScoresByMonthAsync(int year, int month);
+
     }
 }

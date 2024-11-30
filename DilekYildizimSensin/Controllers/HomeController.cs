@@ -23,15 +23,14 @@ namespace DilekYildizimSensin.Controllers
         }
         public async Task<IActionResult> BestOfs()
         {
-            var getTop10UsersByScoreAsync = await _userService.GetTop10UsersByScoreAsync();
+            // Þu anki ay bilgisi
+            int currentMonth = DateTime.Now.Month;
 
-            var indexViewModel = new IndexViewModel
-            {
-                GetTop10UsersByScoreAsync = getTop10UsersByScoreAsync
+            // Þu anki ayýn liderlik tablosunu alýyoruz
+            var leaderboard = await _userService.GetMonthlyLeaderboardAsync(currentMonth);
 
-            };
+            return View(leaderboard);
 
-            return View(indexViewModel);
         }
         public async Task<IActionResult> Index()
         {

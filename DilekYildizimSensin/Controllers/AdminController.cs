@@ -23,6 +23,25 @@ namespace DilekYildizimSensin.Controllers
         }
 
 
+        // Tüm gönüllü puanlarını listeleme
+        public async Task<IActionResult> ListVolunteerScores()
+        {
+            var scores = await _userService.ListAllScoresAsync();
+            return View(scores); // View'da VolunteerScore modelini kullanacağız
+        }
+
+        // Yıl ve aya göre gönüllü puanlarını filtreleme
+        [HttpGet]
+        public async Task<IActionResult> FilterVolunteerScores(int year, int month)
+        {
+            var scores = await _userService.ListScoresByMonthAsync(year, month);
+            ViewData["Year"] = year;
+            ViewData["Month"] = month;
+
+            return View("ListVolunteerScores", scores); // Aynı view ile sonuçlar gösteriliyor
+        }
+
+
         [HttpGet]
         public IActionResult UserScores()
         {
@@ -90,28 +109,33 @@ namespace DilekYildizimSensin.Controllers
         }
 
 
-      
 
 
-        [HttpGet]
-        public async Task<IActionResult> ListEventsWithUsers()
+
+        public async Task<IActionResult> ListEventsWithUsers(string name)
         {
-            var events = await _userService.ListUserEventsAsync();
-            return View(events);
+            var userEvents = string.IsNullOrEmpty(name)
+                ? await _userService.ListUserEventsAsync() // Tüm kullanıcı etkinliklerini getir
+                : await _userService.ListUserEventsByNameAsync(name); // İsme göre filtrele
+
+            ViewData["SearchQuery"] = name; // Arama kriterini view'a gönder
+
+            return View("ListEventsWithUsers", userEvents);
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> SearchUsers(string searchTerm)
-        {
-            var users = string.IsNullOrEmpty(searchTerm)
-                ? new List<AppUser>()
-                : await _userService.SearchUsersAsync(searchTerm);
 
-            var result = users.Select(u => new { u.Id, u.FirstName, u.LastName, u.Email }).ToList();
+        //[HttpGet]
+        //public async Task<IActionResult> SearchUsers(string searchTerm)
+        //{
+        //    var users = string.IsNullOrEmpty(searchTerm)
+        //        ? new List<AppUser>()
+        //        : await _userService.SearchUsersAsync(searchTerm);
 
-            return Json(result);
-        }
+        //    var result = users.Select(u => new { u.Id, u.FirstName, u.LastName, u.Email }).ToList();
+
+        //    return Json(result);
+        //}
 
 
         [HttpGet]

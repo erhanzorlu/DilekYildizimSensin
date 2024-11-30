@@ -17,6 +17,61 @@ namespace DilekYildizimSensin.Services.Concretes
             _context = context;
             _userManager = userManager;
         }
+
+
+        public async Task<List<VolunteerScore>> ListAllScoresAsync()
+        {
+            return await _context.VolunteerScores
+                .Include(vs => vs.AppUser)
+                .OrderByDescending(vs => vs.Year)
+                .ThenByDescending(vs => vs.Month)
+                .ToListAsync();
+        }
+
+        public async Task<List<VolunteerScore>> ListScoresByMonthAsync(int year, int month)
+        {
+            return await _context.VolunteerScores
+                .Include(vs => vs.AppUser)
+                .Where(vs => vs.Year == year && vs.Month == month)
+                .OrderByDescending(vs => vs.Score)
+                .ToListAsync();
+        }
+
+        public async Task<List<UserEvent>> ListUserEventsByNameAsync(string name)
+        {
+            var userEvents = await _context.UserEvents
+                .Include(ue => ue.AppUser)  // Katılan kullanıcı bilgilerini dahil et
+                .Include(ue => ue.Event)    // Katıldığı etkinlik bilgilerini dahil et
+                .Where(ue => ue.AppUser.FirstName.Contains(name) || ue.AppUser.LastName.Contains(name)) // İsme göre filtreleme
+                .OrderByDescending(ue => ue.EventDate) // En yeni tarihten en eskiye doğru sıralama
+                .ToListAsync();
+
+            return userEvents;
+        }
+
+
+
+        public async Task<List<LeaderboardItemDto>> GetMonthlyLeaderboardAsync(int month)
+        {
+            var leaderboardData = await _context.VolunteerScores
+                .Where(s => s.Month == month) // Sadece belirtilen ayın verilerini alıyoruz
+                .GroupBy(s => new { s.AppUser.FirstName, s.AppUser.LastName }) // Kullanıcı adına göre grupluyoruz
+                .Select(g => new LeaderboardItemDto
+                {
+                    FirstName = g.Key.FirstName,
+                    LastName = g.Key.LastName,
+                    Month = month,
+                    Score = g.Sum(s => s.Score)
+                })
+                .OrderByDescending(x => x.Score) // Puanlara göre sıralıyoruz
+                .Take(10) // İlk 10 sonucu alıyoruz
+                .ToListAsync();
+
+            return leaderboardData;
+        }
+
+
+
         public async Task<Dictionary<int, int>> GetMonthlyScoresAsync(Guid userId)
         {
             // Verilen UserId'ye göre veritabanından ay bazında toplam puanları grupluyoruz.
@@ -78,7 +133,7 @@ namespace DilekYildizimSensin.Services.Concretes
                 .ToListAsync();
 
             return topUsers;
-        }
+        } //Silinebilir
 
         public async Task CheckAndAssignBadgesAsync(List<Guid> userIds, Guid eventId, DateTime eventDate)
         {
@@ -246,7 +301,7 @@ namespace DilekYildizimSensin.Services.Concretes
             return await _userManager.Users
                 .Where(u => u.FirstName.Contains(searchTerm) || u.LastName.Contains(searchTerm))
                 .ToListAsync();
-        }
+        }//Silinebilir
     }
 
 }

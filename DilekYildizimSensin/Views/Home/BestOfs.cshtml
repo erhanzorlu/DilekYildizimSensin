@@ -1,14 +1,16 @@
 ﻿@using DilekYildizimSensin.Dtos
-@model IndexViewModel
-@{
-    Layout = null;
-}
+@model List<LeaderboardItemDto>
+
+    @{
+        Layout = null;
+    }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard with Logo</title>
+    <title>Leaderboard</title>
 
     <style>
         body {
@@ -82,31 +84,7 @@
         .list-item span {
             margin-left: 10px;
         }
-
-        .action-button {
-            margin-top: 20px;
-        }
-
-            .action-button button {
-                background: linear-gradient(145deg, #ffd700, #ffa500);
-                border: none;
-                border-radius: 20px;
-                color: #fff;
-                padding: 10px 20px;
-                font-size: 1rem;
-                font-weight: bold;
-                cursor: pointer;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                transition: 0.3s ease;
-            }
-
-                .action-button button:hover {
-                    background: linear-gradient(145deg, #ffa500, #ffd700);
-                    transform: scale(1.05);
-                }
-
     </style>
-
 </head>
 <body>
     <div class="leaderboard-container">
@@ -114,17 +92,27 @@
             <img src="Logo2.png" alt="Make-A-Wish Logo">
         </div>
         <div class="leaderboard-header">
-            <h1>KASIM AYI LİDERLİK TABLOSU</h1>
+            <h1>@DateTime.Now.ToString("MMMM").ToUpper() AYI LİDERLİK TABLOSU</h1>
         </div>
         <div class="leaderboard-list">
-            <div class="list-item first-place">
-                <span>1.Hazal Sertkaya: 55 puan</span>
-            </div>
-            <div class="list-item">
-                <span>2.İrem Keleş: 45 puan</span>
-            </div>
-          
-
+            @if (Model.Any())
+            {
+                <div class="list-item first-place">
+                    <span>@($"1. {Model[0].FirstName} {Model[0].LastName}: {Model[0].Score} puan")</span>
+                </div>
+                @for (int i = 1; i < Model.Count; i++)
+                {
+                    <div class="list-item">
+                        <span>@($"{i + 1}. {Model[i].FirstName} {Model[i].LastName}: {Model[i].Score} puan")</span>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="list-item">
+                    <span>Bu ay için henüz liderlik verisi yok.</span>
+                </div>
+            }
         </div>
     </div>
 </body>

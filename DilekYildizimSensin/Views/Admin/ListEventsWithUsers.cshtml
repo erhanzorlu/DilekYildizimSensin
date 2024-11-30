@@ -18,16 +18,16 @@
         border-collapse: collapse;
     }
 
-    .table th, .table td {
-        padding: 10px;
-        text-align: left;
-        border: 1px solid #ddd;
-    }
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
 
-    .table th {
-        background-color: #f9f9f9;
-        font-weight: bold;
-    }
+        .table th {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
 
     /* Buton stilleri */
     .btn {
@@ -46,22 +46,28 @@
         margin-bottom: 15px;
     }
 
-    .btn-add:hover {
-        background-color: #004080;
-    }
+        .btn-add:hover {
+            background-color: #004080;
+        }
 
     .btn-delete {
         background-color: #f44336; /* Kırmızı */
     }
 
-    .btn-delete:hover {
-        background-color: #d32f2f;
-    }
+        .btn-delete:hover {
+            background-color: #d32f2f;
+        }
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 <h2>Kullanıcı Etkinlik Listesi (Günümüzden Eskiye)</h2>
+
+<!-- Arama formu -->
+<form asp-action="ListEventsWithUsers" asp-controller="Admin" method="get" class="mb-3">
+    <input type="text" name="name" placeholder="İsim Ara" class="form-control" value="@ViewData["SearchQuery"]" style="display: inline-block; width: 80%; margin-right: 10px;" />
+    <button type="submit" class="btn btn-add">Ara</button>
+</form>
 
 <!-- Ekleme butonu -->
 <a asp-action="AddEventToUser" asp-controller="Admin" class="btn btn-add">Etkinlik Ekle</a>
@@ -73,19 +79,29 @@
             <th>Kullanıcı Adı</th>
             <th>Etkinlik Adı</th>
             <th>Katılım Tarihi</th>
+            <th>Puanı</th>
             <th>İşlemler</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var userEvent in Model)
+        @if (Model.Any())
+        {
+            @foreach (var userEvent in Model)
+            {
+                <tr>
+                    <td>@userEvent.AppUser.FirstName @userEvent.AppUser.LastName</td>
+                    <td>@userEvent.Event.EventName</td>
+                    <td>@userEvent.EventDate.ToString("dd MMM yyyy")</td>
+                    <td>
+                        <a asp-action="DeleteEvent" asp-controller="Admin" asp-route-id="@userEvent.Id" class="btn btn-delete">Sil</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
         {
             <tr>
-                <td>@userEvent.AppUser.FirstName @userEvent.AppUser.LastName</td>
-                <td>@userEvent.Event.EventName</td>
-                <td>@userEvent.EventDate.ToString("dd MMM yyyy")</td>
-                <td>
-                    <a asp-action="DeleteEvent" asp-controller="Admin" asp-route-id="@userEvent.Id" class="btn btn-delete">Sil</a>
-                </td>
+                <td colspan="4" style="text-align: center;">Aradığınız kriterlere uygun sonuç bulunamadı.</td>
             </tr>
         }
     </tbody>
@@ -98,15 +114,15 @@
     @if (TempData["SuccessMessage"] != null)
     {
         <text>
-            Toastify({
-                text: "@TempData["SuccessMessage"]",
+                Toastify({
+                    text: "@TempData["SuccessMessage"]",
                 duration: 3000,
                 gravity: "top", // Bildirimin üstte görünmesi
                 position: "center", // Bildirimin merkezde görünmesi
                 backgroundColor: "#4CAF50", // Yeşil arka plan rengi (başarı)
                 stopOnFocus: true, // Kullanıcı bildirim üstüne tıklayınca duraklatma
                 className: "toast-message"
-            }).showToast();
+                    }).showToast();
         </text>
     }
 </script>
