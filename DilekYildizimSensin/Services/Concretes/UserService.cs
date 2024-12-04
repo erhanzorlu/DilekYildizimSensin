@@ -3,7 +3,6 @@ using DilekYildizimSensin.Models;
 using DilekYildizimSensin.Services.Abstracts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
 
 namespace DilekYildizimSensin.Services.Concretes
 {
@@ -19,83 +18,7 @@ namespace DilekYildizimSensin.Services.Concretes
         }
 
 
-        public async Task<List<VolunteerScore>> ListAllScoresAsync()
-        {
-            return await _context.VolunteerScores
-                .Include(vs => vs.AppUser)
-                .OrderByDescending(vs => vs.Year)
-                .ThenByDescending(vs => vs.Month)
-                .ToListAsync();
-        }
-
-        public async Task<List<VolunteerScore>> ListScoresByMonthAsync(int year, int month)
-        {
-            return await _context.VolunteerScores
-                .Include(vs => vs.AppUser)
-                .Where(vs => vs.Year == year && vs.Month == month)
-                .OrderByDescending(vs => vs.Score)
-                .ToListAsync();
-        }
-
-        public async Task<List<UserEvent>> ListUserEventsByNameAsync(string name)
-        {
-            var userEvents = await _context.UserEvents
-                .Include(ue => ue.AppUser)  // Katılan kullanıcı bilgilerini dahil et
-                .Include(ue => ue.Event)    // Katıldığı etkinlik bilgilerini dahil et
-                .Where(ue => ue.AppUser.FirstName.Contains(name) || ue.AppUser.LastName.Contains(name)) // İsme göre filtreleme
-                .OrderByDescending(ue => ue.EventDate) // En yeni tarihten en eskiye doğru sıralama
-                .ToListAsync();
-
-            return userEvents;
-        }
-
-
-
-        public async Task<List<LeaderboardItemDto>> GetMonthlyLeaderboardAsync(int month)
-        {
-            var leaderboardData = await _context.VolunteerScores
-                .Where(s => s.Month == month) // Sadece belirtilen ayın verilerini alıyoruz
-                .GroupBy(s => new { s.AppUser.FirstName, s.AppUser.LastName }) // Kullanıcı adına göre grupluyoruz
-                .Select(g => new LeaderboardItemDto
-                {
-                    FirstName = g.Key.FirstName,
-                    LastName = g.Key.LastName,
-                    Month = month,
-                    Score = g.Sum(s => s.Score)
-                })
-                .OrderByDescending(x => x.Score) // Puanlara göre sıralıyoruz
-                .Take(10) // İlk 10 sonucu alıyoruz
-                .ToListAsync();
-
-            return leaderboardData;
-        }
-
-
-
-        public async Task<Dictionary<int, int>> GetMonthlyScoresAsync(Guid userId)
-        {
-            // Verilen UserId'ye göre veritabanından ay bazında toplam puanları grupluyoruz.
-            var monthlyScores = await _context.VolunteerScores
-                .Where(s => s.AppUserId == userId)
-                .GroupBy(s => s.Month)
-                .Select(g => new { Month = g.Key, TotalScore = g.Sum(s => s.Score) })
-                .ToListAsync();
-
-            // Dictionary olarak döndürüyoruz: Ay -> Toplam Puan
-            return monthlyScores.ToDictionary(x => x.Month, x => x.TotalScore);
-        }
-
-
-        public async Task<List<UserEvent>> ListUserEventsAsync()
-        {
-            var userEvents = await _context.UserEvents
-                .Include(ue => ue.AppUser)  // Katılan kullanıcı bilgilerini dahil et
-                .Include(ue => ue.Event)    // Katıldığı etkinlik bilgilerini dahil et
-                .OrderByDescending(ue => ue.EventDate) // En yeni tarihten en eskiye doğru sıralama
-                .ToListAsync();
-
-            return userEvents;
-        }
+       
 
         public async Task<List<Badge>> GetUserBadgesAsync(Guid userId, CancellationToken cancellationToken = default)
         {
@@ -117,23 +40,7 @@ namespace DilekYildizimSensin.Services.Concretes
             return latestBadge;
         }
 
-        public async Task<List<AppUserDto>> GetTop10UsersByScoreAsync()
-        {
-            var topUsers = await _userManager.Users
-                .OrderByDescending(u => u.Score)
-                .Take(10)
-                .Select(u => new AppUserDto
-                {
-                    Id = u.Id,
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    Score = u.Score,
-                    ImageUrl = u.ImageUrl
-                })
-                .ToListAsync();
 
-            return topUsers;
-        } //Silinebilir
 
         public async Task CheckAndAssignBadgesAsync(List<Guid> userIds, Guid eventId, DateTime eventDate)
         {
@@ -211,15 +118,6 @@ namespace DilekYildizimSensin.Services.Concretes
                 appUser.Score+=20; // Kullanıcıya 20 puan ekle;
                 _context.Add(userBadge);
 
-                var userVolunteerScore = new VolunteerScore
-                {
-                    AppUserId = appUser.Id,
-                    Score = 20,
-                    Year = eventDate.Year,
-                    Month = eventDate.Month
-
-                };
-                _context.Add(userVolunteerScore);
             }
 
          }
@@ -230,7 +128,6 @@ namespace DilekYildizimSensin.Services.Concretes
         public async Task<List<UserEvent>> CreateUserEventsAsync(List<Guid> userIds, Guid eventId, DateTime eventDate, CancellationToken cancellationToken = default)
         {
             var userEvents = new List<UserEvent>();
-            var userVolunteerScores = new List<VolunteerScore>();
 
             // Etkinliğin geçerli olup olmadığını kontrol et
             var selectedEvent = await _context.Events.FindAsync(eventId);
@@ -269,24 +166,20 @@ namespace DilekYildizimSensin.Services.Concretes
                     Event = selectedEvent,
                     AppUser = appUser,
                     EventDate = DateOnly.FromDateTime(eventDate), // Convert DateTime to DateOnly
+
+                    // Yeni Özellikler
+                    Year = eventDate.Year, // Yıl bilgisi
+                    Month = eventDate.Month, // Ay bilgisi
+                    Score = scoreToAdd, // Kullanıcıya etkinlik için verilen puan
                 };
+
 
                 userEvents.Add(userEvent);
 
-                var userVolunteerScore = new VolunteerScore
-                {
-                    AppUserId = userId,
-                    Score = scoreToAdd,
-                    CreatedDate = DateTime.Now,
-                    Year = eventDate.Year,
-                    Month = eventDate.Month
-                };
-                userVolunteerScores.Add(userVolunteerScore);
                 appUser.Score += scoreToAdd; // Kullanıcıya uygun puanı ekle
             }
 
             _context.AddRange(userEvents);
-            _context.AddRange(userVolunteerScores);
 
             // Toplu olarak ekleme ve kaydetme
             await _context.SaveChangesAsync();
@@ -296,12 +189,7 @@ namespace DilekYildizimSensin.Services.Concretes
 
 
 
-        public async Task<List<AppUser>> SearchUsersAsync(string searchTerm)
-        {
-            return await _userManager.Users
-                .Where(u => u.FirstName.Contains(searchTerm) || u.LastName.Contains(searchTerm))
-                .ToListAsync();
-        }//Silinebilir
+
     }
 
 }

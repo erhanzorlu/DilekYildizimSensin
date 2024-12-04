@@ -53,21 +53,21 @@ namespace DilekYildizimSensin.Migrations
                         new
                         {
                             Id = new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"),
-                            ConcurrencyStamp = "915f81d2-38ae-4a78-8769-ba51df0a4e77",
+                            ConcurrencyStamp = "41b3c4d4-ad03-4b59-b3ce-ecffdfba8e3c",
                             Name = "Superadmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"),
-                            ConcurrencyStamp = "c75d099b-417d-4f62-814b-0bb2ddd8c55f",
+                            ConcurrencyStamp = "3b8bbb35-1b51-40a9-812b-f86f82354ee0",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"),
-                            ConcurrencyStamp = "ce4ea321-0bf3-4718-9f52-e412bcd55c3c",
+                            ConcurrencyStamp = "1d09c78b-ec20-4bda-b0f2-ad9b4f3a660c",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -188,7 +188,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             AccessFailedCount = 0,
                             Age = 25,
-                            ConcurrencyStamp = "0ca192aa-338a-480e-9b52-bfc9ea38a8ac",
+                            ConcurrencyStamp = "43844c42-1af9-4948-8ba5-018a921cec19",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -198,11 +198,11 @@ namespace DilekYildizimSensin.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFyt6Vzsyusi4aFf6JRpEcISr4/vS+VBRpzOEKv6rOd5HoZ0Aw2JZZ1boZhrXyE+mQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFmJ/zIqVROhzzJsYbYcjomPlXN9IgEmtEKckHneDQpLN6KxjkFTM+Gk5hzl45cSJg==",
                             PhoneNumber = "+905439999999",
                             PhoneNumberConfirmed = true,
                             Score = 520,
-                            SecurityStamp = "a53040c8-95f7-4a5e-9fe8-c64b6c6c7f76",
+                            SecurityStamp = "aad4ab39-cf7f-4467-9701-8f143e4d2718",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         },
@@ -211,7 +211,7 @@ namespace DilekYildizimSensin.Migrations
                             Id = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             AccessFailedCount = 0,
                             Age = 30,
-                            ConcurrencyStamp = "cd420649-71d4-41be-89d1-1bde9c3563ce",
+                            ConcurrencyStamp = "73ee2cc9-bc7c-442b-b685-dd4ac3f8e94e",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -221,20 +221,20 @@ namespace DilekYildizimSensin.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENtp6ndqJb2E4snQ+MUSqZ718i+JusPwTBGpdt6EaIQEMe0T34Mv85AyQ2cNkLgdXg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECRGfBhDxmMk4Q+XDpGG4SjdgjoqZTkWWgmuwUgokvM2Rp37k9G6hUvpgfmdPv7ZgA==",
                             PhoneNumber = "+905439999988",
                             PhoneNumberConfirmed = false,
                             Score = 123,
-                            SecurityStamp = "4af8374c-64df-4976-a157-15e02b279bf6",
+                            SecurityStamp = "17d70f2d-dbc7-4fbe-99c3-5592372021fd",
                             TwoFactorEnabled = false,
                             UserName = "umutyasar"
                         },
                         new
                         {
-                            Id = new Guid("b6f3d02c-680a-46b9-93ac-b15d4b9751a3"),
+                            Id = new Guid("0b9dfd38-9960-4ec1-8245-7165692527e5"),
                             AccessFailedCount = 0,
                             Age = 25,
-                            ConcurrencyStamp = "4abd0937-56a7-4ed6-8e5e-9c64bb486a1f",
+                            ConcurrencyStamp = "e32d776f-d3e4-4020-bfd7-68edec4ccb74",
                             Email = "ruken.yavuz@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Ruken",
@@ -247,16 +247,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999901",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "e5ad0467-7ccc-4b35-8ded-edc1e9e6daf5",
+                            SecurityStamp = "135ed3e5-81a9-4966-b19c-6a29f395c8c4",
                             TwoFactorEnabled = false,
                             UserName = "Ruken Yavuz"
                         },
                         new
                         {
-                            Id = new Guid("7bcdfeac-76d5-45a9-9dff-6944cc89f5bc"),
+                            Id = new Guid("9858145e-80cf-4f6c-b8c8-985fbda5e0e9"),
                             AccessFailedCount = 0,
                             Age = 22,
-                            ConcurrencyStamp = "a4620c2f-f18c-430b-adcb-bfd9dc9c331f",
+                            ConcurrencyStamp = "21f628e2-4c49-469d-8f8b-a2dcc876a808",
                             Email = "cem.aksu@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Cem",
@@ -269,16 +269,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999902",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "4fa41ed9-9e89-491b-a184-facb247d102f",
+                            SecurityStamp = "b20fc5f6-a98a-40b0-b9e4-3562f610dc1d",
                             TwoFactorEnabled = false,
                             UserName = "Cem Aksu"
                         },
                         new
                         {
-                            Id = new Guid("357b611d-ce13-48c4-a1dd-f60006787163"),
+                            Id = new Guid("82190efd-135e-429a-b06f-b2f38aeaa967"),
                             AccessFailedCount = 0,
                             Age = 24,
-                            ConcurrencyStamp = "b373ada8-1e21-4aa4-b9df-6ff0e4314b30",
+                            ConcurrencyStamp = "2d283a9d-041e-41aa-a3d4-1dc1866dac18",
                             Email = "irem.keles@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "İrem",
@@ -291,16 +291,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999903",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "d807ee8e-66ee-45f3-b794-2977d0024c18",
+                            SecurityStamp = "b72d486f-be34-4f5a-9c67-17d39aaa1dd6",
                             TwoFactorEnabled = false,
                             UserName = "İrem Keleş"
                         },
                         new
                         {
-                            Id = new Guid("422c91b1-beee-4662-ac44-282de1ad1e97"),
+                            Id = new Guid("eb44645f-cba2-4f98-bf3d-22d3ae8a9b81"),
                             AccessFailedCount = 0,
                             Age = 26,
-                            ConcurrencyStamp = "8c9c5989-177a-4942-b047-16bb3a3caa0e",
+                            ConcurrencyStamp = "08666c64-867f-4e72-9eb5-256efeef4ed5",
                             Email = "hazal.serkaya@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Hazal",
@@ -313,16 +313,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999904",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "4e393efd-28d8-4397-ac6d-2e0e9b4049fb",
+                            SecurityStamp = "a3a1ae6f-ec7c-440d-ab87-38216910c627",
                             TwoFactorEnabled = false,
                             UserName = "Hazal Serkaya"
                         },
                         new
                         {
-                            Id = new Guid("25ede081-58c1-4477-8f22-681fcd1b1307"),
+                            Id = new Guid("277c3b4a-0e6a-4444-aa0f-2808bb42a812"),
                             AccessFailedCount = 0,
                             Age = 23,
-                            ConcurrencyStamp = "44770d72-282e-4ab0-8b81-eeb61c058648",
+                            ConcurrencyStamp = "02966bbe-e05d-4fbf-8ff3-03ea5e544d0e",
                             Email = "zeynep.sena.celik@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Zeynep Sena",
@@ -335,16 +335,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999905",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "dc3a490b-873e-41c1-a63b-798b625a30e8",
+                            SecurityStamp = "700d58b1-65a1-4cb7-bc85-b656b9274630",
                             TwoFactorEnabled = false,
                             UserName = "Zeynep Sena Çelik"
                         },
                         new
                         {
-                            Id = new Guid("1f8e1e91-dad7-4eb6-a55e-bb64de18df95"),
+                            Id = new Guid("09f35bdb-09d8-42c5-8473-e86bb8adfedc"),
                             AccessFailedCount = 0,
                             Age = 30,
-                            ConcurrencyStamp = "baaaf099-213f-41a8-bc03-b1b3cb57d46f",
+                            ConcurrencyStamp = "3e7901f8-4e00-4be8-9e55-6daf0c600830",
                             Email = "ali.ozdemir@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Ali",
@@ -357,16 +357,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999906",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "37676ea0-65ba-4c54-8aa0-c1af0c2748e7",
+                            SecurityStamp = "9568d76f-c2a2-4a87-9aa8-5721eddd6067",
                             TwoFactorEnabled = false,
                             UserName = "Ali Özdemir"
                         },
                         new
                         {
-                            Id = new Guid("ec9c853a-9115-4368-b74f-8d64c86c9afe"),
+                            Id = new Guid("e025ca3f-c35b-44fd-a919-e6343a29a09a"),
                             AccessFailedCount = 0,
                             Age = 27,
-                            ConcurrencyStamp = "3fe070a4-1f09-4fd8-b01d-0598da35eb41",
+                            ConcurrencyStamp = "451cd7d8-600a-4a7e-8a90-4586d2f047d4",
                             Email = "erhan.zorlu@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Erhan",
@@ -379,16 +379,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999907",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "1e18c400-9f65-460c-b5bb-dca81a7872bd",
+                            SecurityStamp = "a6bdba6e-fb3e-4518-b58f-c49ade77f2c7",
                             TwoFactorEnabled = false,
                             UserName = "Erhan Zorlu"
                         },
                         new
                         {
-                            Id = new Guid("42096dc2-3847-4489-967d-f029ad631262"),
+                            Id = new Guid("64e2f360-dfcd-4cd7-9ac0-3215e94a9ca6"),
                             AccessFailedCount = 0,
                             Age = 21,
-                            ConcurrencyStamp = "cea4a72b-2d19-48e6-b525-132e1007b8b4",
+                            ConcurrencyStamp = "51fe7f2c-b724-40ab-857a-6cb4f8d1fa78",
                             Email = "yagmur.ay@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Yağmur",
@@ -401,16 +401,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999908",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "76d32440-986a-4d3a-90a9-f7a52d76cd3c",
+                            SecurityStamp = "41848046-ed2e-4cd3-8b3c-a0f07bda16f2",
                             TwoFactorEnabled = false,
                             UserName = "Yağmur Ay"
                         },
                         new
                         {
-                            Id = new Guid("bc48bbc4-ee0c-4cec-bab6-463a0adc9c88"),
+                            Id = new Guid("9a2b8d91-d4fb-4ab0-9d16-9b6685c587f3"),
                             AccessFailedCount = 0,
                             Age = 24,
-                            ConcurrencyStamp = "500ec8e8-2998-4cd1-a0b7-de1f781cc04a",
+                            ConcurrencyStamp = "74737df6-f5dc-4e07-b735-83a6e6b8a459",
                             Email = "nora.ipekci@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Nora",
@@ -423,16 +423,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999909",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "c68e5af0-857f-4461-b145-d7b2a15407ae",
+                            SecurityStamp = "4b12a521-73d5-4880-9d7f-2fec93eeaf7f",
                             TwoFactorEnabled = false,
                             UserName = "Nora İpekçi"
                         },
                         new
                         {
-                            Id = new Guid("8e2c5a2d-05f8-4bb6-8ad1-a0d697ec6c98"),
+                            Id = new Guid("c5d42623-4ecf-462f-aa2d-6196832f4865"),
                             AccessFailedCount = 0,
                             Age = 28,
-                            ConcurrencyStamp = "779ac6c6-0726-4d7d-906f-05eb16c534cc",
+                            ConcurrencyStamp = "e321709d-c3ff-40c0-b84e-a4bfaf302605",
                             Email = "melike.ozdil@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Melike",
@@ -445,16 +445,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999910",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "ed87a450-ecf1-4942-a56f-4c4fe8efc0d6",
+                            SecurityStamp = "bbab8ac7-39e8-4a7a-a163-a01f1d1d44a2",
                             TwoFactorEnabled = false,
                             UserName = "Melike Özdil"
                         },
                         new
                         {
-                            Id = new Guid("0f5398aa-af2b-4573-be1a-d77d6fbe45d8"),
+                            Id = new Guid("d1d13f11-21da-4754-8c22-6df3ab22424a"),
                             AccessFailedCount = 0,
                             Age = 29,
-                            ConcurrencyStamp = "f513c7d0-ee90-4279-9ce8-9c57648e2b74",
+                            ConcurrencyStamp = "d7362dec-bbbe-4770-a68d-413a00fdf2ea",
                             Email = "alper.goksel.yilmaz@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Alper Göksel",
@@ -467,16 +467,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999911",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "cdce47fd-0b94-44fe-8b72-b92579dc4478",
+                            SecurityStamp = "c3da8a0c-f483-4fcd-8383-7ac262b39169",
                             TwoFactorEnabled = false,
                             UserName = "Alper Göksel Yılmaz"
                         },
                         new
                         {
-                            Id = new Guid("651185da-22ff-4f5b-b227-3193ae00dea5"),
+                            Id = new Guid("c2ab9e99-41ce-4018-9a61-0cf96fa9fd0b"),
                             AccessFailedCount = 0,
                             Age = 23,
-                            ConcurrencyStamp = "5fbb5464-2688-40fe-8908-881b0adfa9af",
+                            ConcurrencyStamp = "5da8490c-19be-4dd1-b924-d9376ddee9df",
                             Email = "saliha.canigur@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Saliha",
@@ -489,16 +489,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999912",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "0697a347-b2b2-4dbc-97aa-6dbf28557148",
+                            SecurityStamp = "2c121931-8887-43d8-b83e-9b33c6be0c7d",
                             TwoFactorEnabled = false,
                             UserName = "Saliha Canıgür"
                         },
                         new
                         {
-                            Id = new Guid("510943de-18a7-47f6-a6fd-8cef14173ba7"),
+                            Id = new Guid("9ba2bf72-337a-405f-b394-e8c58e50944e"),
                             AccessFailedCount = 0,
                             Age = 31,
-                            ConcurrencyStamp = "c5819f54-dcb4-4c47-aa0e-ac51a8743a55",
+                            ConcurrencyStamp = "1160e345-7788-4a51-a786-4364332e7676",
                             Email = "huseyin.adas@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Hüseyin",
@@ -511,16 +511,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999913",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "6c11b4c2-0ed6-47f6-a48c-c66f1a1257e6",
+                            SecurityStamp = "eb2ec9ad-072c-4017-bb2e-c156c334ec70",
                             TwoFactorEnabled = false,
                             UserName = "Hüseyin Adaş"
                         },
                         new
                         {
-                            Id = new Guid("ce4dae12-f2e2-4bf5-b756-19063eb8ab00"),
+                            Id = new Guid("6ea93f14-eb3d-4e4c-bcd9-e000fdebdc36"),
                             AccessFailedCount = 0,
                             Age = 27,
-                            ConcurrencyStamp = "3cc12dec-4c98-46c3-b9b2-736e3a6a1b5d",
+                            ConcurrencyStamp = "6e9f604c-34e0-4d1a-84a2-6da3064c9a75",
                             Email = "ferit.erden@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Ferit",
@@ -533,16 +533,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999914",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "45f09cb0-79f6-4027-a17c-cd3183f9be6f",
+                            SecurityStamp = "290e4b45-e234-4fac-8398-cff306e0024a",
                             TwoFactorEnabled = false,
                             UserName = "Ferit Erden"
                         },
                         new
                         {
-                            Id = new Guid("2464c9fd-c904-4eea-90b7-6ec1c5fdcdc1"),
+                            Id = new Guid("31213e0b-3533-4005-93c1-5d757e4f2449"),
                             AccessFailedCount = 0,
                             Age = 26,
-                            ConcurrencyStamp = "a005c670-247c-4924-b527-b7c53d9ce2f5",
+                            ConcurrencyStamp = "325afce6-6bc7-4267-9d46-fd71320ad7a7",
                             Email = "nergis@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Nergis",
@@ -555,16 +555,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999915",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "0e34b66a-b58e-4ea9-9a29-226da7a40170",
+                            SecurityStamp = "43b4c408-f905-4ffc-9a54-3a24460cdf82",
                             TwoFactorEnabled = false,
                             UserName = "Nergis Gül"
                         },
                         new
                         {
-                            Id = new Guid("f142e765-de2f-439e-8974-8d2302cbdc30"),
+                            Id = new Guid("2eba054d-66ff-40ec-bffe-c0b6e8e6ad4e"),
                             AccessFailedCount = 0,
                             Age = 24,
-                            ConcurrencyStamp = "6dd84ffd-c87a-45bf-a0db-0109cb8102e3",
+                            ConcurrencyStamp = "3a485475-89c8-41ec-9b7d-2ccb847892df",
                             Email = "ilayda.celebi@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "İlayda",
@@ -577,16 +577,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999916",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "828d7652-98c6-47ae-88e0-c02569af8a71",
+                            SecurityStamp = "3d61e6bc-f711-44b6-97af-52484b0cd5da",
                             TwoFactorEnabled = false,
                             UserName = "İlayda Çelebi"
                         },
                         new
                         {
-                            Id = new Guid("65e6ee3e-d697-4eb5-8c38-ece9881bdfef"),
+                            Id = new Guid("4f6110c3-66f6-4d55-acd6-02d4023b8245"),
                             AccessFailedCount = 0,
                             Age = 28,
-                            ConcurrencyStamp = "36264f5a-8616-4a66-8a0f-dfcc10720e07",
+                            ConcurrencyStamp = "304684fb-34ed-4af6-81b5-089201a339e5",
                             Email = "gokhan.sahin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Gökhan",
@@ -599,16 +599,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999917",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "a5d9e5bc-d977-4796-a166-54f915998c0d",
+                            SecurityStamp = "586fe7b1-56e4-4f58-a290-c170b5670e9a",
                             TwoFactorEnabled = false,
                             UserName = "Gökhan Şahin"
                         },
                         new
                         {
-                            Id = new Guid("544a8342-c23e-49f9-b89f-c9d60f9bc1a1"),
+                            Id = new Guid("b3a59855-0881-426d-87d8-55a7bb58e1ea"),
                             AccessFailedCount = 0,
                             Age = 26,
-                            ConcurrencyStamp = "8ad41b74-ae5d-46c1-9a81-352deb1bda20",
+                            ConcurrencyStamp = "000c1560-511a-4d85-9571-e471f58ba645",
                             Email = "ozge.akar@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Özge",
@@ -621,16 +621,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999918",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "ce864e60-1fb3-4a70-afbc-c3509989fd36",
+                            SecurityStamp = "7651473f-a781-4acf-b7c0-f145fe928c61",
                             TwoFactorEnabled = false,
                             UserName = "Özge Akar"
                         },
                         new
                         {
-                            Id = new Guid("cf785d0e-efa6-47ad-a31c-bfeaa698176f"),
+                            Id = new Guid("341e9302-2bc2-42fe-8bb9-43bf87b4ee9a"),
                             AccessFailedCount = 0,
                             Age = 27,
-                            ConcurrencyStamp = "0094971e-715c-4a4d-af7d-0b6edbdf52e8",
+                            ConcurrencyStamp = "b5993f54-533e-4061-97d0-4d410b8dbe65",
                             Email = "ipek.gurdamar@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "İpek",
@@ -643,16 +643,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999919",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "2be864dd-52a1-4734-96a2-50788b2970fd",
+                            SecurityStamp = "1eeb2970-1cd8-4b5b-9977-30e2dae19560",
                             TwoFactorEnabled = false,
                             UserName = "İpek Gürdamar"
                         },
                         new
                         {
-                            Id = new Guid("8c233372-ff08-425c-9c40-2529b8239a05"),
+                            Id = new Guid("29a11b04-e0f8-4889-b95a-dd0057c1af00"),
                             AccessFailedCount = 0,
                             Age = 22,
-                            ConcurrencyStamp = "501fde2a-0ada-48f8-bd1b-16dc8b7f7618",
+                            ConcurrencyStamp = "44cad055-d920-4dfb-85d5-e64b0240732f",
                             Email = "melisa.ertan@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Melisa",
@@ -665,16 +665,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999920",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "c252f40b-8c02-4b5d-a9b4-5a32cc01fd68",
+                            SecurityStamp = "ece65c9f-c207-4c34-8763-1f2cf2473bb7",
                             TwoFactorEnabled = false,
                             UserName = "Melisa Ertan"
                         },
                         new
                         {
-                            Id = new Guid("a774727d-3ac6-4ced-a3a2-e18283bc0dca"),
+                            Id = new Guid("c0760813-3564-4ef6-9717-e58b6cbefe60"),
                             AccessFailedCount = 0,
                             Age = 28,
-                            ConcurrencyStamp = "cc768834-e86b-476a-a43f-1f7b705460ea",
+                            ConcurrencyStamp = "fc714ee9-6798-4c77-a2d6-1e90011a92f8",
                             Email = "armagan.yagci@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Armağan",
@@ -687,16 +687,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999921",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "e923f68f-069c-4e9a-a635-5024e21bd185",
+                            SecurityStamp = "6f939787-eb60-4168-8122-2930276ed91b",
                             TwoFactorEnabled = false,
                             UserName = "Armağan Yağcı"
                         },
                         new
                         {
-                            Id = new Guid("97f7abd3-abd6-48ab-838b-509849e3a917"),
+                            Id = new Guid("d88c8518-9dc8-4901-97c8-0b386a090862"),
                             AccessFailedCount = 0,
                             Age = 30,
-                            ConcurrencyStamp = "2c8e28b2-b88c-4326-af06-2d65ce2b58bc",
+                            ConcurrencyStamp = "b124ebc5-6f59-489f-b23f-f63ee176120e",
                             Email = "filiz.cetin.narsap@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Filiz",
@@ -709,16 +709,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999922",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "c905bc84-4bb8-49ce-92b1-4946d9e7e19a",
+                            SecurityStamp = "c5b1af17-1a6d-4e63-8808-2935ef170917",
                             TwoFactorEnabled = false,
                             UserName = "Filiz Çetin Narşap"
                         },
                         new
                         {
-                            Id = new Guid("8ca158c0-a0ba-4edf-8b16-1c7365aa9a23"),
+                            Id = new Guid("e079e4f6-0d09-41c2-abf4-843930bf97f4"),
                             AccessFailedCount = 0,
                             Age = 26,
-                            ConcurrencyStamp = "aff9aea2-fad0-4248-95f9-4147ff2fb313",
+                            ConcurrencyStamp = "e7c699be-cda4-478d-a043-e7ee1f894855",
                             Email = "hande.eren@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Hande",
@@ -731,16 +731,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999923",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "d5390c96-86f0-4650-893f-50b755d73ef7",
+                            SecurityStamp = "cb3b2284-76db-495e-9133-3acf88e64502",
                             TwoFactorEnabled = false,
                             UserName = "Hande Eren"
                         },
                         new
                         {
-                            Id = new Guid("8a5649cf-c6b6-4195-9d37-6feec34fc5ae"),
+                            Id = new Guid("bdbb92b8-b209-474b-a7bf-ecdc97c6af1f"),
                             AccessFailedCount = 0,
                             Age = 27,
-                            ConcurrencyStamp = "84e2b567-0d9d-4079-b27a-73b5c058d008",
+                            ConcurrencyStamp = "9f914d3f-9184-4b90-843f-aee132095007",
                             Email = "nergis.aktas@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Nergis",
@@ -753,16 +753,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999924",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "40511f40-56f7-4ae8-80b5-311f01204486",
+                            SecurityStamp = "d1f0ec5d-bcb9-42fa-8491-425142373be7",
                             TwoFactorEnabled = false,
                             UserName = "Nergis Aktaş"
                         },
                         new
                         {
-                            Id = new Guid("eb2968d2-38da-4272-ac02-294ef4bb9bf0"),
+                            Id = new Guid("38aadb5e-ae48-4767-860c-fc588ebe9cbf"),
                             AccessFailedCount = 0,
                             Age = 29,
-                            ConcurrencyStamp = "76bf807e-68a2-4ec8-96d8-86cf6a7fed70",
+                            ConcurrencyStamp = "0d48f187-8197-46b7-975d-362404faef1c",
                             Email = "gunsu.berber@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Günsu",
@@ -775,16 +775,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999925",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "d7d2ce1e-df20-4959-acf7-5a52c4d43c79",
+                            SecurityStamp = "3416458e-74c2-4089-83d2-17dad7fa7481",
                             TwoFactorEnabled = false,
                             UserName = "Günsu Berber"
                         },
                         new
                         {
-                            Id = new Guid("3b44d85d-0174-424b-a450-cde9de8249b5"),
+                            Id = new Guid("d0038ff3-5561-4cc6-b52a-3ecc63473559"),
                             AccessFailedCount = 0,
                             Age = 24,
-                            ConcurrencyStamp = "33124dc7-d09d-43f7-9dab-974219e973c6",
+                            ConcurrencyStamp = "354f1c57-a12c-49a6-986d-ff2ff3180487",
                             Email = "melike.ozdil@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Melike",
@@ -797,16 +797,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999926",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "55057f79-3d5b-44b4-831c-769694421ec7",
+                            SecurityStamp = "56025c75-b619-4f6c-9e43-0e8a926d7758",
                             TwoFactorEnabled = false,
                             UserName = "Melike Özdil"
                         },
                         new
                         {
-                            Id = new Guid("34c9949f-ccfb-4782-86c7-b56286b206f5"),
+                            Id = new Guid("bc550a9d-ba43-4f0f-ad63-e98af815f60b"),
                             AccessFailedCount = 0,
                             Age = 27,
-                            ConcurrencyStamp = "3ee02f7e-110a-4c21-ac76-031f1d0486d4",
+                            ConcurrencyStamp = "51df646b-4992-4cce-926c-7b786e315056",
                             Email = "yasemin.kocaman@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Yasemin",
@@ -819,16 +819,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999927",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "5ce1f5b5-2eba-4a12-be34-92ab9ebc2154",
+                            SecurityStamp = "ecb92b47-2aa2-420a-b28b-9cd8430b3cc6",
                             TwoFactorEnabled = false,
                             UserName = "Yasemin Kocaman"
                         },
                         new
                         {
-                            Id = new Guid("0ffcc6d2-834d-42fd-912e-07c9ed8b2e54"),
+                            Id = new Guid("8ea6301f-beab-4d38-bbc4-fd7ae6f9ade9"),
                             AccessFailedCount = 0,
                             Age = 26,
-                            ConcurrencyStamp = "4196c696-5e0e-445f-9ba0-76f33940f744",
+                            ConcurrencyStamp = "054b2584-8cbd-4d7a-9aef-047972b7b081",
                             Email = "aysenur.cetin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Ayşe Nur",
@@ -841,16 +841,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999927",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "39e54071-b924-4399-ab38-87dc1556b959",
+                            SecurityStamp = "922e3145-d0dd-4812-8d45-510245b61499",
                             TwoFactorEnabled = false,
                             UserName = "Ayşe Nur Çetin"
                         },
                         new
                         {
-                            Id = new Guid("30d607e1-398d-4653-8dc1-e107d0644c27"),
+                            Id = new Guid("c5270761-cdb3-4602-8370-23c0233c65aa"),
                             AccessFailedCount = 0,
                             Age = 27,
-                            ConcurrencyStamp = "bee6b136-ff41-4fc6-998e-01040ee615a3",
+                            ConcurrencyStamp = "87d17ef4-7c37-4a18-bbb7-72ee397e4bf4",
                             Email = "seyda.muftuoglu@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Şeyda",
@@ -863,16 +863,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999929",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "96537a55-0b2a-4695-9b3e-a959b0d670cc",
+                            SecurityStamp = "aae857e4-59c1-45c9-81e4-60f1cfcb6370",
                             TwoFactorEnabled = false,
                             UserName = "Şeyda Müftüoğlu"
                         },
                         new
                         {
-                            Id = new Guid("0daf3b5c-c86c-4b8b-b271-83082e86a7d1"),
+                            Id = new Guid("c82cf8c0-0c18-4659-98b7-a7e059a6e441"),
                             AccessFailedCount = 0,
                             Age = 28,
-                            ConcurrencyStamp = "6485efe5-a575-4c90-9246-768429a576a6",
+                            ConcurrencyStamp = "db952bc7-2d6e-42c8-ac8f-df1c2f87ea83",
                             Email = "goksu.gokcesu@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Göksu",
@@ -885,16 +885,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999930",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "13575f2c-405a-464d-b47f-dc2c371eacd1",
+                            SecurityStamp = "517d6402-b931-4128-97af-235a31a142a4",
                             TwoFactorEnabled = false,
                             UserName = "Göksu Gökçesu"
                         },
                         new
                         {
-                            Id = new Guid("dd53ceec-f9ee-4ead-820e-a6ebe11d21b2"),
+                            Id = new Guid("38f0a05c-47a7-42f7-b164-252b0113a1d7"),
                             AccessFailedCount = 0,
                             Age = 26,
-                            ConcurrencyStamp = "32bb8612-03b6-4975-99d0-0da91610e2a2",
+                            ConcurrencyStamp = "00b516df-384a-4e00-b5ce-67d3bf95bd98",
                             Email = "sevval.vural@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Şevval",
@@ -907,16 +907,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999931",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "cf39a31b-5515-420c-88cf-2416b1503e7b",
+                            SecurityStamp = "ae29b0ee-0d61-4a2a-8a18-9df3b2aca8b7",
                             TwoFactorEnabled = false,
                             UserName = "Şevval Vural"
                         },
                         new
                         {
-                            Id = new Guid("a6757771-5c0c-48ea-8b1e-d5c7c9042b0b"),
+                            Id = new Guid("6b78a99d-08a8-4b51-8c19-f6d2ffeca8a2"),
                             AccessFailedCount = 0,
                             Age = 25,
-                            ConcurrencyStamp = "b7728678-a98c-44ef-bcf1-66564b648add",
+                            ConcurrencyStamp = "dad5a302-db85-43b0-99ad-564d9ea911f4",
                             Email = "rabia.canigur@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Rabia",
@@ -929,16 +929,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999932",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "caf61417-ecaa-4e2d-ba01-5840357ea572",
+                            SecurityStamp = "c28e1547-a134-48d7-83ac-48520d245e38",
                             TwoFactorEnabled = false,
                             UserName = "Rabia Canıgür"
                         },
                         new
                         {
-                            Id = new Guid("0a9e2bbc-b87b-4e03-86bc-903a8a16ee9e"),
+                            Id = new Guid("c4b121e3-a9b1-45b2-9e5c-de28c8384d3f"),
                             AccessFailedCount = 0,
                             Age = 29,
-                            ConcurrencyStamp = "9d717b54-8a5f-4a3b-b204-84fc08933722",
+                            ConcurrencyStamp = "aa55da65-23fa-4766-9356-d67dab3b6644",
                             Email = "meltem.erkmen.kandil@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Meltem",
@@ -951,16 +951,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999933",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "c581c4c8-a4cd-4278-a774-d208e2e96741",
+                            SecurityStamp = "e5c89ca4-6afb-4cee-9bbe-cf7d17dbe165",
                             TwoFactorEnabled = false,
                             UserName = "Meltem Erkmen Kandil"
                         },
                         new
                         {
-                            Id = new Guid("cf379f56-667c-4ced-9204-ee161b57b071"),
+                            Id = new Guid("a71c8d7f-0e8b-4caf-bdb9-a3544aa29632"),
                             AccessFailedCount = 0,
                             Age = 30,
-                            ConcurrencyStamp = "7f99f6c0-0200-4572-aa2d-450b4edb20cf",
+                            ConcurrencyStamp = "9e2a70bb-95d9-4526-916f-6ab611d0875f",
                             Email = "ahmet.deniz@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Ahmet",
@@ -973,16 +973,16 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999934",
                             PhoneNumberConfirmed = true,
                             Score = 0,
-                            SecurityStamp = "2e90498e-c16c-471e-9c6f-089c676d3946",
+                            SecurityStamp = "79f8c7ef-e34a-4d38-ac58-1f2c8e3d59b0",
                             TwoFactorEnabled = false,
                             UserName = "Ahmet Deniz"
                         },
                         new
                         {
-                            Id = new Guid("eaa872b5-2093-4f37-8c72-c761249844fb"),
+                            Id = new Guid("eb4de0de-0006-43d5-aae6-314297436220"),
                             AccessFailedCount = 0,
                             Age = 31,
-                            ConcurrencyStamp = "6f2d8caf-0b5a-4f9e-9502-976b52491147",
+                            ConcurrencyStamp = "ebe9eee6-5f96-4215-aa67-062735fa9abf",
                             Email = "muhsin.cetinkaya@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Muhsin",
@@ -995,7 +995,7 @@ namespace DilekYildizimSensin.Migrations
                             PhoneNumber = "+905439999935",
                             PhoneNumberConfirmed = false,
                             Score = 0,
-                            SecurityStamp = "2496c0fc-9907-4fba-b4e6-4fd2b3b5cc14",
+                            SecurityStamp = "df8e0510-b280-4260-a7d3-d31b144b07d0",
                             TwoFactorEnabled = false,
                             UserName = "Muhsin Çetinkaya"
                         });
@@ -1141,7 +1141,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://w7.pngwing.com/pngs/423/1004/png-transparent-medal-gold-winner-badge-achievement-reward-army-champion-awards-icon.png",
                             BadgeName = "Dilek Perisi",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 25, 1, 12, 6, 653, DateTimeKind.Local).AddTicks(4240),
+                            CreatedDate = new DateTime(2024, 11, 30, 14, 19, 24, 24, DateTimeKind.Local).AddTicks(1135),
                             IsDeleted = false
                         },
                         new
@@ -1150,7 +1150,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://static.vecteezy.com/system/resources/previews/014/606/031/original/golden-yellow-trophy-icon-for-the-winner-of-a-sports-event-png.png",
                             BadgeName = "Dilek Yıldızı",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 25, 1, 12, 6, 653, DateTimeKind.Local).AddTicks(4303),
+                            CreatedDate = new DateTime(2024, 11, 30, 14, 19, 24, 24, DateTimeKind.Local).AddTicks(1175),
                             IsDeleted = false
                         },
                         new
@@ -1159,7 +1159,7 @@ namespace DilekYildizimSensin.Migrations
                             BadgeIcon = "https://e7.pngegg.com/pngimages/1002/183/png-clipart-smiley-smiley-miscellaneous-smiley.png",
                             BadgeName = "Gülen Yüz",
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 25, 1, 12, 6, 653, DateTimeKind.Local).AddTicks(4310),
+                            CreatedDate = new DateTime(2024, 11, 30, 14, 19, 24, 24, DateTimeKind.Local).AddTicks(1182),
                             IsDeleted = false
                         });
                 });
@@ -1205,7 +1205,7 @@ namespace DilekYildizimSensin.Migrations
                         {
                             Id = new Guid("1328a6c8-9ebd-4b22-978a-453f0c31bbdf"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 24, 22, 12, 6, 653, DateTimeKind.Utc).AddTicks(5850),
+                            CreatedDate = new DateTime(2024, 11, 30, 11, 19, 24, 24, DateTimeKind.Utc).AddTicks(3021),
                             EventName = "Diğer Gönüllü Faaliyetleri",
                             IsDeleted = false
                         },
@@ -1213,7 +1213,7 @@ namespace DilekYildizimSensin.Migrations
                         {
                             Id = new Guid("1e7bc8e4-59a8-4f63-af21-c7697a727f64"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 24, 22, 12, 6, 653, DateTimeKind.Utc).AddTicks(5854),
+                            CreatedDate = new DateTime(2024, 11, 30, 11, 19, 24, 24, DateTimeKind.Utc).AddTicks(3025),
                             EventName = "Dilek Alma Etkinliği",
                             IsDeleted = false
                         },
@@ -1221,7 +1221,7 @@ namespace DilekYildizimSensin.Migrations
                         {
                             Id = new Guid("3c5b8e39-a8f8-4671-a573-2e1e5e8a6f85"),
                             CreatedBy = "Undefined",
-                            CreatedDate = new DateTime(2024, 11, 24, 22, 12, 6, 653, DateTimeKind.Utc).AddTicks(5857),
+                            CreatedDate = new DateTime(2024, 11, 30, 11, 19, 24, 24, DateTimeKind.Utc).AddTicks(3027),
                             EventName = "Dilek Gerçekleştirme Etkinliği",
                             IsDeleted = false
                         });
@@ -1292,10 +1292,10 @@ namespace DilekYildizimSensin.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("EventDate")
+                    b.Property<DateOnly?>("EventDate")
                         .HasColumnType("date");
 
-                    b.Property<Guid>("EventId")
+                    b.Property<Guid?>("EventId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsDeleted")
@@ -1306,6 +1306,15 @@ namespace DilekYildizimSensin.Migrations
 
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("Month")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Score")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -1314,53 +1323,6 @@ namespace DilekYildizimSensin.Migrations
                     b.HasIndex("EventId");
 
                     b.ToTable("UserEvents");
-                });
-
-            modelBuilder.Entity("DilekYildizimSensin.Models.VolunteerScore", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AppUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DeletedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Month")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
-
-                    b.ToTable("VolunteerScores");
                 });
 
             modelBuilder.Entity("DilekYildizimSensin.Models.AppRoleClaim", b =>
@@ -1443,24 +1405,11 @@ namespace DilekYildizimSensin.Migrations
 
                     b.HasOne("DilekYildizimSensin.Models.Event", "Event")
                         .WithMany("UserEvents")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EventId");
 
                     b.Navigation("AppUser");
 
                     b.Navigation("Event");
-                });
-
-            modelBuilder.Entity("DilekYildizimSensin.Models.VolunteerScore", b =>
-                {
-                    b.HasOne("DilekYildizimSensin.Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
                 });
 
             modelBuilder.Entity("DilekYildizimSensin.Models.AppUser", b =>

@@ -166,23 +166,16 @@
                 </a>
             </li>
             <li>
-                <a asp-controller="Admin" asp-action="ListEventsWithUsers" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "AddEventToUser" ? "active" : "")">
+                <a asp-controller="Admin" asp-action="ListUserEvents" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "ListUserEvents" ? "active" : "")">
                     Etkinlikleri Listele
                 </a>
             </li>
 
             <li>
-                <a asp-controller="Admin" asp-action="UserScores" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "UserScores" ? "active" : "")">
-                    Kullanıcı Puanları
+                <a asp-controller="Admin" asp-action="MonthlyUserScores" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "MonthlyUserScores" ? "active" : "")">
+                    Kullanıcı İstatistikleri
                 </a>
             </li>
-
-            <li>
-                <a asp-controller="Admin" asp-action="ListVolunteerScores" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "ListVolunteerScores" ? "active" : "")">
-                    Gönüllü Puanları Listele
-                </a>
-            </li>
-
 
             <li>
                 <a asp-controller="Home" asp-action="BestOfs" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "BestOfs" ? "active" : "")">

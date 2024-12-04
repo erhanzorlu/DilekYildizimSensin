@@ -1,90 +1,10 @@
-﻿@using DilekYildizimSensin.Dtos
-@model List<LeaderboardItemDto>
-
-    @{
-        Layout = null;
-    }
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #7CB9E8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .leaderboard-container {
-            width: 300px;
-            background-color: #0076CE;
-            border-radius: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 20px 0;
-            position: relative;
-        }
-
-        .logo {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-            .logo img {
-                width: 300px;
-                height: auto;
-            }
-
-        .leaderboard-header {
-            background-color: #ff6f9c;
-            border-radius: 10px;
-            padding: 10px 20px;
-            margin: 10px auto 20px;
-            display: inline-block;
-            width: 200px;
-        }
-
-            .leaderboard-header h1 {
-                color: #fff;
-                font-size: 1.2rem;
-                margin: 0;
-                font-weight: bold;
-            }
-
-        .leaderboard-list {
-            padding: 0 20px;
-        }
-
-        .list-item {
-            background-color: #fdebd4;
-            margin: 10px 0;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #0076CE;
-            justify-content: start;
-        }
-
-        .first-place {
-            background: linear-gradient(145deg, #ffd700, #ffa500);
-            color: #0076CE;
-        }
-
-        .list-item span {
-            margin-left: 10px;
-        }
-    </style>
+    <title>Leaderboard with Logo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="leaderboard-container">
@@ -92,27 +12,39 @@
             <img src="Logo2.png" alt="Make-A-Wish Logo">
         </div>
         <div class="leaderboard-header">
-            <h1>@DateTime.Now.ToString("MMMM").ToUpper() AYI LİDERLİK TABLOSU</h1>
+            <h1>KASIM AYI LİDERLİK TABLOSU</h1>
         </div>
         <div class="leaderboard-list">
-            @if (Model.Any())
-            {
-                <div class="list-item first-place">
-                    <span>@($"1. {Model[0].FirstName} {Model[0].LastName}: {Model[0].Score} puan")</span>
-                </div>
-                @for (int i = 1; i < Model.Count; i++)
-                {
-                    <div class="list-item">
-                        <span>@($"{i + 1}. {Model[i].FirstName} {Model[i].LastName}: {Model[i].Score} puan")</span>
-                    </div>
-                }
-            }
-            else
-            {
-                <div class="list-item">
-                    <span>Bu ay için henüz liderlik verisi yok.</span>
-                </div>
-            }
+            <div class="list-item first-place">
+                <span>1. Erhan Zorlu: 150 puan</span>
+            </div>
+            <div class="list-item">
+                <span>2. Hazal Sertkaya: 55 puan</span>
+            </div>
+            <div class="list-item">
+                <span>3. İrem Keleş: 45 puan</span>
+            </div>
+            <div class="list-item">
+                <span>4. Yasemin Kocaman: 45 puan</span>
+            </div>
+            <div class="list-item">
+                <span>5. Ali Özdemir: 45 puan</span>
+            </div>
+            <div class="list-item">
+                <span>6. Yağmur Ay: 30 puan</span>
+            </div>
+            <div class="list-item">
+                <span>7. Melike Özdil: 25 puan</span>
+            </div>
+            <div class="list-item">
+                <span>8. Zeynep Sena Çelik: 15 puan</span>
+            </div>
+            <div class="list-item">
+                <span>9. Şeyda Müftüoğlu: 15 puan</span>
+            </div>
+            <div class="list-item">
+                <span>10. Cem Aksu: 15 puan</span>
+            </div>
         </div>
     </div>
 </body>

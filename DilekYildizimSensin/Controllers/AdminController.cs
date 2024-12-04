@@ -22,70 +22,6 @@ namespace DilekYildizimSensin.Controllers
             _userService = userService;
         }
 
-
-        // Tüm gönüllü puanlarını listeleme
-        public async Task<IActionResult> ListVolunteerScores()
-        {
-            var scores = await _userService.ListAllScoresAsync();
-            return View(scores); // View'da VolunteerScore modelini kullanacağız
-        }
-
-        // Yıl ve aya göre gönüllü puanlarını filtreleme
-        [HttpGet]
-        public async Task<IActionResult> FilterVolunteerScores(int year, int month)
-        {
-            var scores = await _userService.ListScoresByMonthAsync(year, month);
-            ViewData["Year"] = year;
-            ViewData["Month"] = month;
-
-            return View("ListVolunteerScores", scores); // Aynı view ile sonuçlar gösteriliyor
-        }
-
-
-        [HttpGet]
-        public IActionResult UserScores()
-        {
-            // Kullanıcıları al ve ViewModel'e ata
-            var model = new UserScoresViewModel
-            {
-                SelectedUserId = null,
-                Users = _userManager.Users
-                    .Select(u => new UserScoresViewModel.UserItem
-                    {
-                        Id = u.Id,
-                        UserName = u.UserName
-                    })
-                    .ToList(),
-                MonthlyScores = null // İlk açılışta boş bırakılır
-            };
-
-            return View(model);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> UserScores(Guid userId)
-        {
-            // Seçili kullanıcının aylık puanlarını al
-            var monthlyScores = await _userService.GetMonthlyScoresAsync(userId);
-
-            // ViewModel'i doldur
-            var model = new UserScoresViewModel
-            {
-                SelectedUserId = userId,
-                Users = _userManager.Users
-                    .Select(u => new UserScoresViewModel.UserItem
-                    {
-                        Id = u.Id,
-                        UserName = u.UserName
-                    })
-                    .ToList(),
-                MonthlyScores = monthlyScores // Aylık puanları ViewModel'e ekle
-            };
-
-            return View(model);
-        }
-
-
         public async Task<IActionResult> Index()
         {
             // Şu anki kullanıcıyı al
@@ -109,35 +45,60 @@ namespace DilekYildizimSensin.Controllers
         }
 
 
-
-
-
-        public async Task<IActionResult> ListEventsWithUsers(string name)
+        public async Task<IActionResult> MonthlyUserScores()
         {
-            var userEvents = string.IsNullOrEmpty(name)
-                ? await _userService.ListUserEventsAsync() // Tüm kullanıcı etkinliklerini getir
-                : await _userService.ListUserEventsByNameAsync(name); // İsme göre filtrele
+            // Şu anki yıl ve ay bilgisi
+            var currentYear = DateTime.Now.Year;
+            var currentMonth = DateTime.Now.Month;
 
-            ViewData["SearchQuery"] = name; // Arama kriterini view'a gönder
+            // Tüm kullanıcıların bu ayki puanlarını getir
+            var monthlyUserScores = await _context.UserEvents
+                .Where(ue => ue.Year == currentYear && ue.Month == currentMonth)
+                .GroupBy(ue => ue.AppUserId)
+                .Select(g => new MonthlyUserScoreViewModel
+                {
+                    UserId = g.Key,
+                    UserName = _context.Users
+                                .Where(u => u.Id == g.Key)
+                                .Select(u => u.FirstName + " " + u.LastName)
+                                .FirstOrDefault(),
+                    MonthlyScore = g.Sum(ue => ue.Score ?? 0)
+                })
+                .ToListAsync();
 
-            return View("ListEventsWithUsers", userEvents);
+            return View(monthlyUserScores);
         }
 
 
 
-        //[HttpGet]
-        //public async Task<IActionResult> SearchUsers(string searchTerm)
-        //{
-        //    var users = string.IsNullOrEmpty(searchTerm)
-        //        ? new List<AppUser>()
-        //        : await _userService.SearchUsersAsync(searchTerm);
 
-        //    var result = users.Select(u => new { u.Id, u.FirstName, u.LastName, u.Email }).ToList();
+        // Kullanıcı etkinliklerini listeleme ve filtreleme
+        public async Task<IActionResult> ListUserEvents(string searchTerm = null)
+        {
+            // UserEvents tablosunda sorgu başlat
+            var query = _context.UserEvents
+                .Include(ue => ue.AppUser) // Kullanıcı bilgilerini dahil et
+                .Include(ue => ue.Event)  // Etkinlik bilgilerini dahil et
+                .AsQueryable();
 
-        //    return Json(result);
-        //}
+            // Eğer bir arama kriteri varsa, ad ve soyada göre filtreleme yap
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(ue =>
+                    ue.AppUser.FirstName.Contains(searchTerm) ||
+                    ue.AppUser.LastName.Contains(searchTerm));
+            }
 
+            // Sorguyu çalıştır ve sonuçları tarihe göre sırala
+            var userEvents = await query
+                .OrderByDescending(ue => ue.EventDate) // Tarihe göre sıralama
+                .ToListAsync();
 
+            // Arama kriterini view'da göstermek için ViewData kullan
+            ViewData["SearchTerm"] = searchTerm;
+
+            return View(userEvents);
+        }
         [HttpGet]
         public async Task<IActionResult> AddEventToUser()
         {
@@ -168,7 +129,7 @@ namespace DilekYildizimSensin.Controllers
                 await _userService.CreateUserEventsAsync(model.SelectedUserIds, model.EventId, model.EventDate);
                 await _userService.CheckAndAssignBadgesAsync(model.SelectedUserIds, model.EventId,model.EventDate);
                 TempData["SuccessMessage"] = "Etkinlik kaydi basariyla olusturuldu.";
-                return RedirectToAction("ListEventsWithUsers");
+                return RedirectToAction("ListUserEvents");
             }
             catch (Exception ex)
             {
@@ -188,14 +149,14 @@ namespace DilekYildizimSensin.Controllers
             if (userEvent == null)
             {
                 TempData["SuccessMessage"] = "Etkinlik bulunamadı!";
-                return RedirectToAction("ListEventsWithUsers");
+                return RedirectToAction("ListUserEvents");
             }
 
             _context.UserEvents.Remove(userEvent);
             await _context.SaveChangesAsync();
 
             TempData["SuccessMessage"] = "Etkinlik başarıyla silindi!";
-            return RedirectToAction("ListEventsWithUsers");
+            return RedirectToAction("ListUserEvents");
         }
     }
 }

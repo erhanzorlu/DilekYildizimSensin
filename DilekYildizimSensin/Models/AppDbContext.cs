@@ -15,7 +15,6 @@ namespace DilekYildizimSensin.Models
         public DbSet<Event> Events { get; set; }
         public DbSet<UserBadge> UserBadges { get; set; }
         public DbSet<UserEvent> UserEvents { get; set; }
-        public DbSet<VolunteerScore> VolunteerScores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -23,64 +23,11 @@ namespace DilekYildizimSensin.Controllers
         }
         public async Task<IActionResult> BestOfs()
         {
-            // Þu anki ay bilgisi
-            int currentMonth = DateTime.Now.Month;
 
-            // Þu anki ayýn liderlik tablosunu alýyoruz
-            var leaderboard = await _userService.GetMonthlyLeaderboardAsync(currentMonth);
-
-            return View(leaderboard);
+            return View();
 
         }
-        public async Task<IActionResult> Index()
-        {
-            AppUserDto appUserDto = null;
-
-            if (User.Identity.IsAuthenticated)
-            {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-                var appUser = await _userManager.Users
-                    .Include(u => u.UserBadges)
-                    .ThenInclude(ub => ub.Badge)
-                    .FirstOrDefaultAsync(u => u.Id.ToString() == userId);
-
-                if (appUser != null)
-                {
-                    appUserDto = new AppUserDto
-                    {
-                        Id=appUser.Id,
-                        FirstName = appUser.FirstName,
-                        LastName = appUser.LastName,
-                        Gender = appUser.Gender.ToString(),
-                        Age = appUser.Age,
-                        Score = appUser.Score,
-                        NickName= appUser.UserName,
-                        ImageUrl = appUser.ImageUrl,
-                        UserBadges = appUser.UserBadges
-                            .Select(ub => new BadgeDto
-                            {
-                                BadgeName = ub.Badge.BadgeName,
-                                BadgeIcon = ub.Badge.BadgeIcon
-                            })
-                            .ToList()
-                    };
-                }
-            }
-
-            var latestBadge =await _userService.GetLatestBadgeAsync(appUserDto.Id);
-            var getTop5UsersByScoreAsync = await _userService.GetTop10UsersByScoreAsync();
-
-            var indexViewModel = new IndexViewModel
-            {
-                AppUserDto = appUserDto,
-                GetLatestBadgeAsync=latestBadge,
-                GetTop10UsersByScoreAsync=getTop5UsersByScoreAsync
-                
-            };
-
-            return View(indexViewModel);
-        }
+     
 
 
         [HttpGet]
