@@ -145,13 +145,13 @@ namespace DilekYildizimSensin.Services.Concretes
                 switch (selectedEvent.EventName)
                 {
                     case "Dilek Gerçekleştirme Etkinliği":
-                        scoreToAdd = 15;
+                        scoreToAdd = 5;
                         break;
                     case "Diğer Gönüllü Faaliyetleri":
                         scoreToAdd = 10;
                         break;
                     case "Dilek Alma Etkinliği":
-                        scoreToAdd = 5;
+                        scoreToAdd = 15;
                         break;
                     default:
                         throw new Exception("Geçersiz etkinlik türü");

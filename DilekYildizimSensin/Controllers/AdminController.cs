@@ -45,15 +45,15 @@ namespace DilekYildizimSensin.Controllers
         }
 
 
-        public async Task<IActionResult> MonthlyUserScores()
+        public async Task<IActionResult> MonthlyUserScores(int? year, int? month)
         {
-            // Şu anki yıl ve ay bilgisi
-            var currentYear = DateTime.Now.Year;
-            var currentMonth = DateTime.Now.Month;
+            // Eğer yıl ve ay belirtilmemişse, geçerli yıl ve ayı kullan
+            var selectedYear = year ?? DateTime.Now.Year;
+            var selectedMonth = month ?? DateTime.Now.Month;
 
-            // Tüm kullanıcıların bu ayki puanlarını getir
+            // Seçilen ay ve yıla göre kullanıcıların puanlarını getir
             var monthlyUserScores = await _context.UserEvents
-                .Where(ue => ue.Year == currentYear && ue.Month == currentMonth)
+                .Where(ue => ue.Year == selectedYear && ue.Month == selectedMonth)
                 .GroupBy(ue => ue.AppUserId)
                 .Select(g => new MonthlyUserScoreViewModel
                 {
@@ -66,8 +66,13 @@ namespace DilekYildizimSensin.Controllers
                 })
                 .ToListAsync();
 
+            // View'e yıl ve ay bilgilerini de gönder
+            ViewData["SelectedYear"] = selectedYear;
+            ViewData["SelectedMonth"] = selectedMonth;
+
             return View(monthlyUserScores);
         }
+
 
 
 

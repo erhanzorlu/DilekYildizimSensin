@@ -745,6 +745,274 @@ namespace DilekYildizimSensin.Data.Mappings
                 Score = 0,
             };
 
+            var user36 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "SULTANOZMERT@GMAIL.COM",
+                Email = "sultan.ozmert@gmail.com",
+                NormalizedEmail = "SULTANOZMERT@GMAIL.COM",
+                PhoneNumber = "+905430000036",
+                FirstName = "Sultan",
+                LastName = "Özmert",
+                UserName = "Sultan Özmert",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image36",
+                Age = 25,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user37 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "AHMETALPOZDEMIR@GMAIL.COM",
+                Email = "ahmet.alp.ozdemir@gmail.com",
+                NormalizedEmail = "AHMETALPOZDEMIR@GMAIL.COM",
+                PhoneNumber = "+905430000037",
+                FirstName = "Ahmet Alp",
+                LastName = "Özdemir",
+                UserName = "Ahmet Alp Özdemir",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image37",
+                Age = 28,
+                Gender = Models.Enums.GenderEnum.Erkek,
+                Score = 0,
+            };
+
+            var user38 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "EYLULEDACEKMENOGLU@GMAIL.COM",
+                Email = "eylul.eda.cekmenoglu@gmail.com",
+                NormalizedEmail = "EYLULEDACEKMENOGLU@GMAIL.COM",
+                PhoneNumber = "+905430000038",
+                FirstName = "Eylül Eda",
+                LastName = "Çekmenoğlu",
+                UserName = "Eylül Eda Çekmenoğlu",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image38",
+                Age = 24,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user39 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "ZEYNEPCEMREORDU@GMAIL.COM",
+                Email = "zeynep.cemre.ordu@gmail.com",
+                NormalizedEmail = "ZEYNEPCEMREORDU@GMAIL.COM",
+                PhoneNumber = "+905430000039",
+                FirstName = "Zeynep Cemre",
+                LastName = "Ordu",
+                UserName = "Zeynep Cemre Ordu",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image39",
+                Age = 26,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user40 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "MIHRIBANAKDEMIR@GMAIL.COM",
+                Email = "mihriban.akdemir@gmail.com",
+                NormalizedEmail = "MIHRIBANAKDEMIR@GMAIL.COM",
+                PhoneNumber = "+905430000040",
+                FirstName = "Mihriban",
+                LastName = "Akdemir",
+                UserName = "Mihriban Akdemir",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image40",
+                Age = 30,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user41 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "BUSEAYDEMIR@GMAIL.COM",
+                Email = "buse.aydemir@gmail.com",
+                NormalizedEmail = "BUSEAYDEMIR@GMAIL.COM",
+                PhoneNumber = "+905430000041",
+                FirstName = "Buse",
+                LastName = "Aydemir",
+                UserName = "Buse Aydemir",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image41",
+                Age = 27,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user42 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "SEVVALNILSUTARHAN@GMAIL.COM",
+                Email = "sevval.nilsu.tarhan@gmail.com",
+                NormalizedEmail = "SEVVALNILSUTARHAN@GMAIL.COM",
+                PhoneNumber = "+905430000042",
+                FirstName = "Şevval Nilsu",
+                LastName = "Tarhan",
+                UserName = "Şevval Nilsu Tarhan",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image42",
+                Age = 23,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user43 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "MELISAKIZILHISAR@GMAIL.COM",
+                Email = "melisa.kizilhisar@gmail.com",
+                NormalizedEmail = "MELISAKIZILHISAR@GMAIL.COM",
+                PhoneNumber = "+905430000043",
+                FirstName = "Melisa",
+                LastName = "Kızılhisar",
+                UserName = "Melisa Kızılhisar",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image43",
+                Age = 29,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user44 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "BETULEMELBUTUNER@GMAIL.COM",
+                Email = "betul.emel.butuner@gmail.com",
+                NormalizedEmail = "BETULEMELBUTUNER@GMAIL.COM",
+                PhoneNumber = "+905430000044",
+                FirstName = "Betül Emel",
+                LastName = "Bütüner",
+                UserName = "Betül Emel Bütüner",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image44",
+                Age = 31,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user45 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "BARISKELES@GMAIL.COM",
+                Email = "baris.keles@gmail.com",
+                NormalizedEmail = "BARISKELES@GMAIL.COM",
+                PhoneNumber = "+905430000045",
+                FirstName = "Barış",
+                LastName = "Keleş",
+                UserName = "Barış Keleş",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image45",
+                Age = 32,
+                Gender = Models.Enums.GenderEnum.Erkek,
+                Score = 0,
+            };
+
+            var user46 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "LARADINC@GMAIL.COM",
+                Email = "lara.dinc@gmail.com",
+                NormalizedEmail = "LARADINC@GMAIL.COM",
+                PhoneNumber = "+905430000046",
+                FirstName = "Lara",
+                LastName = "Dinç",
+                UserName = "Lara Dinç",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image46",
+                Age = 21,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user47 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "BUSRASELIMOGLU@GMAIL.COM",
+                Email = "busra.selimoglu@gmail.com",
+                NormalizedEmail = "BUSRASELIMOGLU@GMAIL.COM",
+                PhoneNumber = "+905430000047",
+                FirstName = "Büşra",
+                LastName = "Selimoğlu",
+                UserName = "Büşra Selimoğlu",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image47",
+                Age = 28,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+            var user48 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "DOGAMERT@GMAIL.COM",
+                Email = "doga.mert@gmail.com",
+                NormalizedEmail = "DOGAMERT@GMAIL.COM",
+                PhoneNumber = "+905430000048",
+                FirstName = "Doğa",
+                LastName = "Mert",
+                UserName = "Doğa Mert",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image48",
+                Age = 24,
+                Gender = Models.Enums.GenderEnum.Erkek,
+                Score = 0,
+            };
+
+            var user49 = new AppUser
+            {
+                Id = Guid.NewGuid(),
+                NormalizedUserName = "YARENTURGUT@GMAIL.COM",
+                Email = "yaren.turgut@gmail.com",
+                NormalizedEmail = "YARENTURGUT@GMAIL.COM",
+                PhoneNumber = "+905430000049",
+                FirstName = "Yaren",
+                LastName = "Turgut",
+                UserName = "Yaren Turgut",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageUrl = "image49",
+                Age = 22,
+                Gender = Models.Enums.GenderEnum.Kadin,
+                Score = 0,
+            };
+
+
+            // Diğer kullanıcılar için de aynı şablonu devam ettirebilirim. Eksik veya ek bilgi varsa belirtmekten çekinme!
 
 
 
@@ -790,7 +1058,23 @@ namespace DilekYildizimSensin.Data.Mappings
                 user32,
                 user33,
                 user34,
-                user35
+                user35,
+                user36,
+                user37,
+                user38,
+                user39,
+                user40,
+                user41,
+                user42,
+                user43,
+                user44,
+                user45,
+                user46,
+                user47,
+                user48,
+                user49
+
+
 
             );
 
